@@ -1,14 +1,28 @@
 'use client';
 
 import { Mail, Linkedin, Github, BarChart4, Bot, Cpu, Moon, Sun, Code2, ScrollText, FileDown } from 'lucide-react';
-//import { motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import { useEffect, useState } from 'react';
-//import Image from 'next/image';
-//import { Dialog } from '@headlessui/react';
 import PortfolioGallery from './components/PortfolioGallery';
 import RotatingBox from './components/RotatingBox';
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      when: "beforeChildren",
+      staggerChildren: 0.2
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+};
 
 function Loader() {
   return (
@@ -42,7 +56,12 @@ export default function Page() {
 
   return (
     <main className="min-h-screen font-sans tracking-tight bg-gradient-to-b from-indigo-100 via-white to-white dark:from-gray-900 dark:to-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-500">
-      <nav className="sticky top-0 z-50 bg-white/80 dark:bg-gray-800/90 backdrop-blur border-b py-4 shadow-sm">
+      <motion.nav
+        className="sticky top-0 z-50 bg-white/80 dark:bg-gray-800/90 backdrop-blur border-b py-4 shadow-sm"
+        initial={{ y: -60, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6 }}
+      >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 flex justify-between items-center">
           <h1 className="text-xl sm:text-2xl font-bold flex items-center gap-2"><Code2 className="text-indigo-500" /> Alex Pizarro</h1>
           <ul className="flex gap-4 sm:gap-6 text-sm sm:text-base text-gray-600 dark:text-gray-300">
@@ -51,46 +70,72 @@ export default function Page() {
             <li><a href="#certifications" className="hover:text-indigo-500 transition-colors">Certificaciones</a></li>
             <li><a href="#contact" className="hover:text-indigo-500 transition-colors">Contacto</a></li>
             <li>
-              <button onClick={() => setDarkMode(!darkMode)} aria-label="Toggle Dark Mode">
+              <button onClick={() => setDarkMode(prev => !prev)} aria-label="Toggle Dark Mode">
                 {darkMode ? <Sun className="w-5 h-5 text-yellow-300" /> : <Moon className="w-5 h-5 text-gray-600" />}
               </button>
             </li>
           </ul>
         </div>
-      </nav>
+      </motion.nav>
 
-      <section id="hero" className="py-24 text-center flex flex-col items-center justify-center">
-        <div className="text-5xl font-bold mb-4">Alex Pizarro</div>
-        <p className="text-lg max-w-xl leading-relaxed text-gray-700 dark:text-gray-300">
+      <motion.section
+        id="hero"
+        className="py-24 text-center flex flex-col items-center justify-center"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <motion.div className="text-5xl font-bold mb-4" variants={itemVariants}>Alex Pizarro</motion.div>
+        <motion.p
+          className="text-lg max-w-xl leading-relaxed text-gray-700 dark:text-gray-300"
+          variants={itemVariants}
+        >
           Transformo datos en decisiones inteligentes. Especialista en Business Intelligence, Power BI, Python, SQL y transformación digital.
-        </p>
-        <div className="mt-10 w-48 h-48 rounded-full bg-black/10 dark:bg-white/5 shadow-inner flex items-center justify-center">
+        </motion.p>
+        <motion.div
+          className="mt-10 w-48 h-48 rounded-full bg-black/10 dark:bg-white/5 shadow-inner flex items-center justify-center"
+          variants={itemVariants}
+        >
           <Canvas camera={{ position: [0, 0, 5] }}>
             <ambientLight intensity={0.5} />
             <directionalLight position={[0, 0, 5]} />
             <OrbitControls enableZoom={false} />
             <RotatingBox />
           </Canvas>
-
-        </div>
-        <a
+        </motion.div>
+        <motion.a
           href="/AlexPizarro_CV.pdf"
           download
           className="mt-6 inline-flex items-center gap-2 px-5 py-2.5 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition"
+          variants={itemVariants}
         >
           <FileDown className="w-5 h-5" /> Descargar CV
-        </a>
-      </section>
-      
-      <section id="about" className="py-20 px-6 max-w-3xl mx-auto text-center">
+        </motion.a>
+      </motion.section>
+
+      <motion.section
+        id="about"
+        className="py-20 px-6 max-w-3xl mx-auto text-center"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
         <ScrollText className="mx-auto text-indigo-500 w-10 h-10 mb-4" />
         <h2 className="text-3xl font-bold mb-6">Sobre mí</h2>
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
           Soy un Business Intelligence Data Analyst con experiencia en dashboards, automatización y transformación digital. He liderado proyectos con grandes ahorros y mejoras operativas. Me especializo en Power BI, Python y SQL.
         </p>
-      </section>
+      </motion.section>
 
-      <section id="projects" className="py-20 px-6 max-w-5xl mx-auto text-center">
+      <motion.section
+        id="projects"
+        className="py-20 px-6 max-w-5xl mx-auto text-center"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
         <h2 className="text-3xl font-bold mb-10">Proyectos Destacados</h2>
         <div className="grid md:grid-cols-3 gap-8">
           <div>
@@ -122,9 +167,16 @@ export default function Page() {
             </ul>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      <section id="certifications" className="py-20 px-6 max-w-3xl mx-auto text-center">
+      <motion.section
+        id="certifications"
+        className="py-20 px-6 max-w-3xl mx-auto text-center"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
         <h2 className="text-3xl font-bold mb-6">Certificaciones</h2>
         <ul className="text-gray-700 dark:text-gray-300 space-y-2 text-sm">
           <li>✅ Data Analyst in Power BI – DataCamp 75%</li>
@@ -134,11 +186,18 @@ export default function Page() {
           <li>✅ Excel Avanzado – Cámara de Industrias de Costa Rica</li>
           <li>✅ Inglés Conversacional – INA</li>
         </ul>
-      </section>
+      </motion.section>
 
       <PortfolioGallery />
 
-      <section id="contact" className="py-20 px-6 max-w-3xl mx-auto text-center">
+      <motion.section
+        id="contact"
+        className="py-20 px-6 max-w-3xl mx-auto text-center"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
         <h2 className="text-3xl font-bold mb-6">Contacto</h2>
         <div className="flex flex-col items-center gap-4 text-gray-800 dark:text-gray-200">
           <div className="flex items-center gap-2">
@@ -154,18 +213,18 @@ export default function Page() {
             <a href="https://github.com/alexpizarro3" target="_blank" rel="noopener noreferrer" className="hover:underline">github.com/alexpizarro3</a>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {showScrollTop && (
-        <button
+        <motion.button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="fixed bottom-5 right-5 z-50 p-3 rounded-full bg-indigo-600 text-white shadow-lg hover:bg-indigo-700 transition"
+          className="fixed bottom-5 right-5 z-50 p-4 text-xl rounded-full bg-indigo-600 text-white shadow-lg hover:bg-indigo-800 hover:scale-110 transition-transform duration-300"
+          whileHover={{ scale: 1.2, backgroundColor: '#4f46e5' }}
           aria-label="Volver arriba"
         >
           ↑
-        </button>
+        </motion.button>
       )}
     </main>
   );
 }
-

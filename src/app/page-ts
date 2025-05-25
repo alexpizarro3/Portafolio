@@ -1,0 +1,4 @@
+export const metadata = {
+  title: 'Alexis Pizarro - Portafolio',
+  description: 'Portafolio personal y profesional de Alexis Pizarro, experto en Business Intelligence, Power BI y automatización de datos.'
+};

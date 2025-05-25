@@ -2,6 +2,7 @@
 
 import { useState, useRef } from 'react';
 import { Dialog } from '@headlessui/react';
+import Image from 'next/image';
 
 export default function PortfolioGallery() {
   const [open, setOpen] = useState(false);
@@ -52,11 +53,14 @@ export default function PortfolioGallery() {
                   zIndex: isHovered ? 40 : 10,
                 }}
               >
-                <img
+                <Image
                   src={`/portfolio/project${id}.jpg`}
                   alt={`Proyecto ${id}`}
+                  width={300} // ajusta según tu diseño
+                  height={240} // ajusta según tu diseño
                   className="w-full h-60 object-cover rounded-xl shadow-lg border border-gray-300 dark:border-gray-700 group-hover:ring-4 group-hover:ring-indigo-400"
                 />
+
               </div>
               <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 bg-black/70 text-white text-xs py-1 px-3 rounded-full">
                 Proyecto {id}
@@ -69,7 +73,7 @@ export default function PortfolioGallery() {
       <Dialog open={open} onClose={() => setOpen(false)} className="fixed inset-0 z-50 flex items-center justify-center">
         <div className="fixed inset-0 bg-black/70" aria-hidden="true" />
         <div className="relative z-10 max-w-4xl mx-auto p-4">
-          <img
+          <Image
             src={`/portfolio/project${activeImage}.jpg`}
             alt={`Proyecto ${activeImage}`}
             className="w-full h-auto max-h-[80vh] rounded-lg shadow-xl"
