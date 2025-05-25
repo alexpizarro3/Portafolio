@@ -56,8 +56,7 @@ function GalaxyNebulaShader() {
   );
 }
 
-function Nebula({ position = [0, 0, 0] as [number, number, number]
-, color = new THREE.Color('#b99aff') }) {
+function Nebula({ position = [0, 0, 0] as [number, number, number], color = new THREE.Color('#b99aff') }) {
   const points = new Float32Array(8000).map(() => THREE.MathUtils.randFloatSpread(80));
   const bufferRef = useRef<THREE.Points>(null);
   const materialRef = useRef<THREE.ShaderMaterial>(null);
@@ -156,43 +155,41 @@ export default function Hero3D() {
     <section className="relative h-screen w-full overflow-hidden bg-black">
       <a
         href="https://alexispizarroportafolio.vercel.app/"
-        className="group absolute top-6 left-6 z-50 flex items-center gap-3 text-white"
-        >
-        <div className="w-14 h-14 rounded-full bg-gradient-to-br from-purple-500 to-indigo-600 shadow-xl text-white flex items-center justify-center font-extrabold text-2xl hover:scale-110 transition-all duration-300">
-            AP
+        className="group absolute top-6 left-6 z-50 flex items-center gap-3"
+      >
+        <div className="w-14 h-14 rounded-full bg-gradient-to-br from-purple-500 to-indigo-600 shadow-xl text-white flex items-center justify-center font-extrabold text-2xl group-hover:scale-110 transition-all duration-300">
+          AP
         </div>
-        <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-lg font-semibold">
-            Alexis Pizarro
+        <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white text-lg font-semibold">
+          Alexis Pizarro
         </span>
-    </a>
-
+      </a>
 
       <div className="absolute top-0 left-0 z-10 h-full w-full flex flex-col items-start justify-center px-10 gap-4">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="max-w-lg bg-black/60 p-6 rounded-xl backdrop-blur-sm animate-border-glow-fire"
+          className="max-w-xl bg-gradient-to-r from-indigo-900/70 to-purple-800/70 p-6 rounded-2xl shadow-2xl backdrop-blur-md border border-indigo-500/30"
         >
-          <h1 className="text-5xl md:text-2xl font-bold text-white leading-tight mb-6 drop-shadow-lg">
+          <h1 className="text-4xl sm:text-3xl font-extrabold text-white leading-snug mb-4">
             Alexis Pizarro
           </h1>
-          <p className="text-xl md:text-3xl text-indigo-100 drop-shadow">
+          <p className="text-lg sm:text-xl text-indigo-100 leading-relaxed">
             Business Intelligence Developer <br /> Power BI • Python • SQL • Automatización
           </p>
         </motion.div>
       </div>
 
-      {/* Barra lateral derecha con íconos */}
       <div className="fixed right-4 top-1/2 -translate-y-1/2 z-40 space-y-6 bg-black/50 p-4 rounded-full backdrop-blur-md shadow-xl">
         <a href="https://www.gmail.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-pink-400 transition">
-          <Mail className="w-12 h-18" />
+          <Mail className="w-11 h-17" />
         </a>
         <a href="https://www.linkedin.com/in/alexis-pizarro-abarca-9018826b/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-400 transition">
-          <Linkedin className="w-12 h-18" />
+          <Linkedin className="w-11 h-17" />
         </a>
         <a href="https://github.com/alexpizarro3" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-400 transition">
-          <Github className="w-12 h-18" />
+          <Github className="w-11 h-17" />
         </a>
       </div>
 
