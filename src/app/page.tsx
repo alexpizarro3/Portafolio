@@ -1,28 +1,10 @@
 'use client';
 
-import { Mail, Linkedin, Github, BarChart4, Bot, Cpu, Moon, Sun, Code2, ScrollText, FileDown } from 'lucide-react';
+import { Mail, Linkedin, Github, BarChart4, Bot, Cpu, Moon, Sun, Code2, ScrollText } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
 import { useEffect, useState } from 'react';
 import PortfolioGallery from './components/PortfolioGallery';
-import RotatingBox from './components/RotatingBox';
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      when: "beforeChildren",
-      staggerChildren: 0.2
-    }
-  }
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-};
+import Hero3D from './components/Hero3D';
 
 function Loader() {
   return (
@@ -78,40 +60,8 @@ export default function Page() {
         </div>
       </motion.nav>
 
-      <motion.section
-        id="hero"
-        className="py-24 text-center flex flex-col items-center justify-center"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        <motion.div className="text-5xl font-bold mb-4" variants={itemVariants}>Alex Pizarro</motion.div>
-        <motion.p
-          className="text-lg max-w-xl leading-relaxed text-gray-700 dark:text-gray-300"
-          variants={itemVariants}
-        >
-          Transformo datos en decisiones inteligentes. Especialista en Business Intelligence, Power BI, Python, SQL y transformación digital.
-        </motion.p>
-        <motion.div
-          className="mt-10 w-48 h-48 rounded-full bg-black/10 dark:bg-white/5 shadow-inner flex items-center justify-center"
-          variants={itemVariants}
-        >
-          <Canvas camera={{ position: [0, 0, 5] }}>
-            <ambientLight intensity={0.5} />
-            <directionalLight position={[0, 0, 5]} />
-            <OrbitControls enableZoom={false} />
-            <RotatingBox />
-          </Canvas>
-        </motion.div>
-        <motion.a
-          href="/AlexPizarro_CV.pdf"
-          download
-          className="mt-6 inline-flex items-center gap-2 px-5 py-2.5 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition"
-          variants={itemVariants}
-        >
-          <FileDown className="w-5 h-5" /> Descargar CV
-        </motion.a>
-      </motion.section>
+      {/* Hero nuevo con fondo 3D animado */}
+      <Hero3D />
 
       <motion.section
         id="about"
