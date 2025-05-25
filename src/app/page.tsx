@@ -1,12 +1,12 @@
 'use client';
 
 import { Mail, Linkedin, Github, BarChart4, Bot, Cpu, Moon, Sun, Code2, ScrollText, FileDown } from 'lucide-react';
-import { motion } from 'framer-motion';
+//import { motion } from 'framer-motion';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
-import { useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
-import { Dialog } from '@headlessui/react';
+import { useEffect, useState } from 'react';
+//import Image from 'next/image';
+//import { Dialog } from '@headlessui/react';
 import PortfolioGallery from './components/PortfolioGallery';
 import RotatingBox from './components/RotatingBox';
 
