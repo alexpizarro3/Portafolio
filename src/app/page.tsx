@@ -45,7 +45,7 @@ export default function Page() {
         transition={{ duration: 0.6 }}
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 flex justify-between items-center">
-          <h1 className="text-xl sm:text-2xl font-bold flex items-center gap-2"><Code2 className="text-indigo-500" /> Alex Pizarro</h1>
+          <h1 className="text-xl sm:text-2xl font-bold flex items-center gap-2"><Code2 className="text-indigo-500" /> Alexis Pizarro</h1>
           <ul className="flex gap-4 sm:gap-6 text-sm sm:text-base text-gray-600 dark:text-gray-300">
             <li><a href="#about" className="hover:text-indigo-500 transition-colors">Sobre mí</a></li>
             <li><a href="#projects" className="hover:text-indigo-500 transition-colors">Proyectos</a></li>
