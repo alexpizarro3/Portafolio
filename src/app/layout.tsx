@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: 'Alexis Pizarro - Portafolio',
-  description: 'Portafolio personal y profesional de Alexis Pizarro, experto en Business Intelligence, Power BI y automatización de datos.'
+  description: 'Portafolio personal y profesional de Alexis Pizarro, experto en Business Intelligence, Power BI y automatización de datos.',
 };
 
 export default function RootLayout({
@@ -23,11 +23,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-      <body>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
       </body>
     </html>
-
   );
 }

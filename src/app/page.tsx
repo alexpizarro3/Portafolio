@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import PortfolioGallery from './components/PortfolioGallery';
 import Hero3D from './components/Hero3D';
+import ContactForm from './components/ContactForm';
 
 function Loader() {
   return (
@@ -20,8 +21,16 @@ export default function Page() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    document.documentElement.classList.toggle('dark', darkMode);
+    const body = window.document.body;
+    if (darkMode) {
+      body.classList.add('dark');
+    } else {
+      body.classList.remove('dark');
+    }
   }, [darkMode]);
+
+
+
 
   useEffect(() => {
     const onScroll = () => setShowScrollTop(window.scrollY > 300);
@@ -149,6 +158,8 @@ export default function Page() {
         transition={{ duration: 0.8 }}
       >
         <h2 className="text-3xl font-bold mb-6">Contacto</h2>
+        <ContactForm />
+        <br />
         <div className="flex flex-col items-center gap-4 text-gray-800 dark:text-gray-200">
           <div className="flex items-center gap-2">
             <Mail className="text-pink-600" />

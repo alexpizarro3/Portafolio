@@ -172,7 +172,7 @@ export default function Hero3D() {
           transition={{ duration: 1 }}
           className="max-w-xl bg-gradient-to-r from-indigo-900/70 to-purple-800/70 p-6 rounded-2xl shadow-2xl backdrop-blur-md border border-indigo-500/30"
         >
-          <h1 className="text-4xl sm:text-3xl font-extrabold text-white leading-snug mb-4">
+          <h1 className="text-4xl sm:text-xl font-extrabold text-white leading-snug mb-4">
             Alexis Pizarro
           </h1>
           <p className="text-lg sm:text-xl text-indigo-100 leading-relaxed">
