@@ -7,6 +7,7 @@ import { EffectComposer, Bloom, Noise } from '@react-three/postprocessing';
 import { useRef } from 'react';
 import * as THREE from 'three';
 import { Mail, Linkedin, Github } from 'lucide-react';
+import GargantuaBlackHole from './GargantuaBlackHole';
 
 function GalaxyNebulaShader() {
   const meshRef = useRef<THREE.Mesh>(null);
@@ -150,7 +151,28 @@ function FogLayer() {
   );
 }
 
+function RotatingBackground() {
+  const groupRef = useRef<THREE.Group>(null);
+
+  useFrame(() => {
+    if (groupRef.current) {
+      groupRef.current.rotation.y += 0.0007;
+    }
+  });
+
+  return (
+    <group ref={groupRef}>
+      <Stars radius={100} depth={60} count={12000} factor={10} saturation={0.5} fade speed={1.2} />
+      <GalaxyNebulaShader />
+      <Nebula />
+      <Nebula position={[-3, -2, -10]} color={new THREE.Color('#84d4fc')} />
+      <FogLayer />
+    </group>
+  );
+}
+
 export default function Hero3D() {
+  
   return (
     <section className="relative h-screen w-full overflow-hidden bg-black">
       <a
@@ -220,16 +242,16 @@ export default function Hero3D() {
       <Canvas className="absolute inset-0 z-0" camera={{ position: [0, 0, 6] }}>
         <ambientLight intensity={0.5} />
         <directionalLight position={[5, 5, 5]} intensity={1.2} />
-        <Stars radius={100} depth={60} count={12000} factor={10} saturation={0.5} fade speed={1.2} />
-        <GalaxyNebulaShader />
-        <Nebula />
-        <Nebula position={[-3, -2, -10]} color={new THREE.Color('#84d4fc')} />
-        <FogLayer />
+
+        <RotatingBackground />
+        <GargantuaBlackHole />
+
         <EffectComposer>
           <Bloom intensity={0.65} luminanceThreshold={0.1} luminanceSmoothing={0.85} />
           <Noise opacity={0.025} />
         </EffectComposer>
-        <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.6} />
+
+        <OrbitControls enableZoom={false} enableRotate={false} enablePan={false} />
       </Canvas>
     </section>
   );
