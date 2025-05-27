@@ -181,7 +181,9 @@ export default function Hero3D() {
         </motion.div>
       </div>
 
-      <div className="fixed right-4 top-1/2 -translate-y-1/2 z-40 space-y-6 bg-black/50 p-4 rounded-full backdrop-blur-md shadow-xl">
+      <div className="fixed top-1/2 -translate-y-1/2 z-40 space-y-6 bg-black/50 p-4 rounded-full backdrop-blur-md shadow-xl
+        right-4 sm:right-2 max-sm:right-1 max-sm:translate-x-0
+      ">
         <a href="https://www.gmail.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-pink-400 transition">
           <Mail className="w-11 h-17" />
         </a>

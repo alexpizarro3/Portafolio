@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import PortfolioGallery from './components/PortfolioGallery';
 import Hero3D from './components/Hero3D';
 import ContactForm from './components/ContactForm';
+import CertificationsSkillsSection from './components/CertificationsSkillsSection'; 
 
 function Loader() {
   return (
@@ -21,16 +22,13 @@ export default function Page() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const body = window.document.body;
+  const html = document.documentElement; // <html> tag
     if (darkMode) {
-      body.classList.add('dark');
+      html.classList.add('dark');
     } else {
-      body.classList.remove('dark');
+      html.classList.remove('dark');
     }
   }, [darkMode]);
-
-
-
 
   useEffect(() => {
     const onScroll = () => setShowScrollTop(window.scrollY > 300);
@@ -128,25 +126,8 @@ export default function Page() {
         </div>
       </motion.section>
 
-      <motion.section
-        id="certifications"
-        className="py-20 px-6 max-w-3xl mx-auto text-center"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-      >
-        <h2 className="text-3xl font-bold mb-6">Certificaciones</h2>
-        <ul className="text-gray-700 dark:text-gray-300 space-y-2 text-sm">
-          <li>✅ Data Analyst in Power BI – DataCamp 75%</li>
-          <li>✅ PL 300 Data Analyst Certification – Microsoft Late 2025</li>
-          <li>✅ Certificación Power BI – Grow Up Academy</li>
-          <li>✅ Curso de Python para análisis de datos – DataCamp</li>
-          <li>✅ Excel Avanzado – Cámara de Industrias de Costa Rica</li>
-          <li>✅ Inglés Conversacional – INA</li>
-        </ul>
-      </motion.section>
-
+      <CertificationsSkillsSection />
+      
       <PortfolioGallery />
 
       <motion.section
