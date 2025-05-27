@@ -30,12 +30,12 @@ const certifications = [
 ];
 
 const skills = [
-  { name: 'Power BI', level: 95 },
-  { name: 'Python', level: 85 },
-  { name: 'SQL', level: 90 },
-  { name: 'Power Automate', level: 80 },
-  { name: 'Excel / Power Query', level: 90 },
-  { name: 'Apps Script', level: 75 },
+  { name: 'Power BI', level: 85 },
+  { name: 'Python', level: 70 },
+  { name: 'SQL', level: 70 },
+  { name: 'Power Automate', level: 60 },
+  { name: 'Excel / Power Query', level: 75 },
+  { name: 'Apps Script', level: 60 },
 ];
 
 const radarData = {

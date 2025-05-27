@@ -181,19 +181,41 @@ export default function Hero3D() {
         </motion.div>
       </div>
 
-      <div className="fixed top-1/2 -translate-y-1/2 z-40 space-y-6 bg-black/50 p-4 rounded-full backdrop-blur-md shadow-xl
-        right-4 sm:right-2 max-sm:right-1 max-sm:translate-x-0
-      ">
-        <a href="https://www.gmail.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-pink-400 transition">
-          <Mail className="w-11 h-17" />
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+        className="fixed z-50 flex flex-col sm:flex-col sm:top-1/2 sm:right-2 sm:-translate-y-1/2 sm:space-y-6
+          bottom-4 left-1/2 -translate-x-1/2 sm:translate-x-0 sm:bottom-auto sm:left-auto
+          bg-black/50 p-2 sm:p-4 rounded-full backdrop-blur-md shadow-xl space-x-6 sm:space-x-0 flex-row sm:flex-col">
+        <a
+          href="https://www.gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group relative text-white transition"
+        >
+        <Mail className="w-7 h-7 sm:w-11 sm:h-11 group-hover:scale-110 group-hover:text-pink-400 transition-transform duration-300" />
+          <span className="absolute inset-0 rounded-full ring-2 ring-pink-400 opacity-0 group-hover:opacity-60 group-hover:scale-125 transition-all duration-500"></span>
         </a>
-        <a href="https://www.linkedin.com/in/alexis-pizarro-abarca-9018826b/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-400 transition">
-          <Linkedin className="w-11 h-17" />
+        <a
+          href="https://www.linkedin.com/in/alexis-pizarro-abarca-9018826b/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group relative text-white transition">
+          <Linkedin className="w-7 h-7 sm:w-11 sm:h-11 group-hover:scale-110 group-hover:text-blue-400 transition-transform duration-300" />
+          <span className="absolute inset-0 rounded-full ring-2 ring-blue-400 opacity-0 group-hover:opacity-60 group-hover:scale-125 transition-all duration-500"></span>
         </a>
-        <a href="https://github.com/alexpizarro3" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-400 transition">
-          <Github className="w-11 h-17" />
+        <a
+          href="https://github.com/alexpizarro3"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group relative text-white transition"
+        >
+          <Github className="w-7 h-7 sm:w-11 sm:h-11 group-hover:scale-110 group-hover:text-gray-400 transition-transform duration-300" />
+          <span className="absolute inset-0 rounded-full ring-2 ring-gray-400 opacity-0 group-hover:opacity-60 group-hover:scale-125 transition-all duration-500"></span>
         </a>
-      </div>
+
+      </motion.div>
 
       <Canvas className="absolute inset-0 z-0" camera={{ position: [0, 0, 6] }}>
         <ambientLight intensity={0.5} />
