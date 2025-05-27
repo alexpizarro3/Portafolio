@@ -3,10 +3,10 @@
 import { Mail, Linkedin, Github, BarChart4, Bot, Cpu, Moon, Sun, Code2, ScrollText } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import PortfolioGallery from './components/PortfolioGallery';
 import Hero3D from './components/Hero3D';
 import ContactForm from './components/ContactForm';
 import CertificationsSkillsSection from './components/CertificationsSkillsSection'; 
+import PortfolioGalleryTablet from './components/PortfolioGalleryTablet';
 
 function Loader() {
   return (
@@ -128,7 +128,7 @@ export default function Page() {
 
       <CertificationsSkillsSection />
       
-      <PortfolioGallery />
+      <PortfolioGalleryTablet />
 
       <motion.section
         id="contact"
