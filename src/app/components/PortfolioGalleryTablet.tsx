@@ -52,7 +52,7 @@ export default function PortfolioGalleryTablet() {
               <motion.div
                 whileHover={{ scale: 1.1 }}
                 transition={{ type: 'spring', stiffness: 300 }}
-                className="relative w-[800px] h-[500px] bg-black rounded-[2rem] border-[10px] border-gray-900 shadow-2xl overflow-hidden"
+                className="relative w-full max-w-[800px] aspect-[16/10] bg-black rounded-[2rem] border-[10px] border-gray-900 shadow-2xl overflow-hidden"
               >
                 {/* Notch and Home button */}
                 <div className="absolute top-4 left-4 w-3 h-3 bg-gray-600 rounded-full" />
@@ -61,6 +61,7 @@ export default function PortfolioGalleryTablet() {
                   src={image}
                   alt={title}
                   fill
+                  sizes="(max-width: 768px) 100vw, 800px"
                   className={`rounded-[1.5rem] ${id === 2 ? 'object-contain' : 'object-cover'}`}
                 />
               </motion.div>
