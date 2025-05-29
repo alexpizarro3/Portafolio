@@ -24,7 +24,9 @@ const certifications = [
   { title: 'PL-300 Microsoft', date: 'June 2025', icon: <BarChart4 className="w-6 h-6" /> },
   { title: 'Data Analyst with Power Bi – DataCamp', date: 'Mayo 2025', icon: <BarChart4 className="w-6 h-6" />, link: 'https://www.datacamp.com/completed/statement-of-accomplishment/track/0a56adace0b94be8f3845a1195fda8cbb69566b4' },
   { title: 'Python para Análisis – DataCamp', date: 'Late 2025', icon: <Code2 className="w-6 h-6" /> },
+  { title: 'Data Visualization With Power Bi – Great Learning', date: '2023', icon: <Cpu className="w-6 h-6" />, link: 'https://www.mygreatlearning.com/certificate/PVDQICBW' },
   { title: 'Excel Analytics – Great Learning', date: '2023', icon: <Cpu className="w-6 h-6" />, link: 'https://www.mygreatlearning.com/certificate/OATINFET' },
+  { title: 'Azure Course – Great Learning', date: '2023', icon: <Cpu className="w-6 h-6" />, link: 'https://www.mygreatlearning.com/certificate/AVSUSFFM' },
   { title: 'Power BI – Grow Up Academy', date: '2019', icon: <Bot className="w-6 h-6" />, link: 'https://drive.google.com/file/d/1klqmpwbXokHu5weeWDH47CFwULqYoXpz/view?usp=sharing' },
   { title: 'EF SET Inglés B2-C1', date: '2023', icon: <ScrollText className="w-6 h-6" />, link: 'https://cert.efset.org/7VCg9k' },
 ];
