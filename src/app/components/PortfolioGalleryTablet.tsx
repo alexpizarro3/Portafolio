@@ -5,33 +5,43 @@ const projects = [
   {
     id: 1,
     title: 'Indicadores Logísticos',
-    description: 'Dashboard mensual con KPIs de Fill Rate, MAPE, Costo Logístico y Días de Cubrimiento.',
+    description:
+      'Dashboard de KPIs como Costo Logístico, Fill Rate, MAPE y Días de Inventario. Incluye extracción desde SAP, ETL en Python y alertas automáticas con Power Automate. Visualización por país, marca y producto con análisis temporal.',
     image: '/portfolio/project1.jpg',
+    technologies: ['SAP', 'SQL', 'Power BI', 'Power Automate', 'ETL']
   },
   {
     id: 2,
     title: 'Tiempos Muertos TPM',
-    description: 'Visualización de causas de paro, tendencia semanal y TreeMap por línea.',
+    description:
+      'Sabana de indicadores para analizar el impacto de paros operativos, mecánicos y eléctricos. Vista por línea, producto y marca. Generó ahorros anuales de $50K USD.',
     image: '/portfolio/project2.jpg',
+    technologies: ['Power BI', 'Power Query', 'SQL', 'Python', 'Excel', 'Google Sheets']
   },
   {
     id: 3,
     title: 'Dashboard de Scrap',
-    description: 'Scrap diario, semanal y mensual por línea con metas y tendencia.',
+    description:
+      'Dashboard de desperdicio en procesos productivos. Permite visualización clara por línea, producto y turno, con insights para reducir scrap y mejorar eficiencia.',
     image: '/portfolio/project3.jpg',
+    technologies: ['Power BI', 'Power Query', 'SQL', 'Python', 'Excel', 'Google Sheets']
   },
   {
     id: 4,
     title: 'Sobrepeso por Línea',
-    description: 'Dashboard que compara % sobrepeso por línea y turno con metas definidas.',
+    description:
+      'Dashboard de pérdidas por entrega de producto con mayor peso al declarado. Identifica desviaciones por línea y turno para reducir el impacto económico.',
     image: '/portfolio/project4.jpg',
+    technologies: ['Power BI', 'Power Query', 'SQL', 'Python', 'Excel', 'Google Sheets']
   },
   {
     id: 5,
     title: 'Consumo de Gas LPG',
-    description: 'Consumo semanal de Gas LPG en m³, turnos, hornos y monto no reportado en USD.',
+    description:
+      'Indicador desarrollado para medir consumo de Gas LPG (m³) por horno, producto y tonelada. Contribuyó al cumplimiento de certificaciones energéticas y redujo costos en $50K USD anuales.',
     image: '/portfolio/project5.jpg',
-  },
+    technologies: ['Power BI', 'Power Query', 'SQL', 'Python', 'Excel', 'Google Sheets']
+  }
 ];
 
 export default function PortfolioGalleryTablet() {
@@ -39,7 +49,7 @@ export default function PortfolioGalleryTablet() {
     <section id="portfolio" className="py-20 px-6 max-w-7xl mx-auto">
       <h2 className="text-3xl font-bold text-center mb-16">Portafolio Visual</h2>
       <div className="flex flex-col gap-32">
-        {projects.map(({ id, title, description, image }) => (
+        {projects.map(({ id, title, description, image, technologies }) => (
           <motion.div
             key={id}
             initial={{ opacity: 0, y: 40 }}
@@ -69,6 +79,16 @@ export default function PortfolioGalleryTablet() {
             <div className="w-full md:w-2/5 text-center md:text-left">
               <h3 className="text-3xl font-semibold mb-4 text-indigo-700 dark:text-indigo-400">{title}</h3>
               <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">{description}</p>
+              <div className="flex flex-wrap gap-2 mt-4">
+                {technologies.map((tech, idx) => (
+                  <span
+                    key={idx}
+                    className="bg-indigo-100 text-indigo-700 dark:bg-indigo-800 dark:text-indigo-200 text-xs font-medium px-2 py-1 rounded-full"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
             </div>
           </motion.div>
         ))}

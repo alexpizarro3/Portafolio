@@ -21,12 +21,12 @@ ChartJS.register(
 );
 
 const certifications = [
-  { title: 'PL-300 Microsoft', date: 'Late 2025', icon: <BarChart4 className="w-6 h-6" /> },
-  { title: 'Power BI – DataCamp', date: 'Mayo 2025', icon: <BarChart4 className="w-6 h-6" /> },
-  { title: 'Excel Analytics – Great Learning', date: '2023', icon: <Cpu className="w-6 h-6" /> },
-  { title: 'Power BI – Grow Up Academy', date: '2019', icon: <Bot className="w-6 h-6" /> },
-  { title: 'Python para Análisis – DataCamp', date: '2024', icon: <Code2 className="w-6 h-6" /> },
-  { title: 'EF SET Inglés B2-C1', date: '2023', icon: <ScrollText className="w-6 h-6" /> },
+  { title: 'PL-300 Microsoft', date: 'June 2025', icon: <BarChart4 className="w-6 h-6" /> },
+  { title: 'Data Analyst with Power Bi – DataCamp', date: 'Mayo 2025', icon: <BarChart4 className="w-6 h-6" />, link: 'https://www.datacamp.com/completed/statement-of-accomplishment/track/0a56adace0b94be8f3845a1195fda8cbb69566b4' },
+  { title: 'Python para Análisis – DataCamp', date: 'Late 2025', icon: <Code2 className="w-6 h-6" /> },
+  { title: 'Excel Analytics – Great Learning', date: '2023', icon: <Cpu className="w-6 h-6" />, link: 'https://www.mygreatlearning.com/certificate/OATINFET' },
+  { title: 'Power BI – Grow Up Academy', date: '2019', icon: <Bot className="w-6 h-6" />, link: 'https://drive.google.com/file/d/1klqmpwbXokHu5weeWDH47CFwULqYoXpz/view?usp=sharing' },
+  { title: 'EF SET Inglés B2-C1', date: '2023', icon: <ScrollText className="w-6 h-6" />, link: 'https://cert.efset.org/7VCg9k' },
 ];
 
 const skills = [
@@ -92,7 +92,15 @@ export default function CertificationsSkillsSection() {
           >
             <div className="text-indigo-600 dark:text-indigo-400">{cert.icon}</div>
             <div>
-              <h3 className="font-semibold">{cert.title}</h3>
+              <h3 className="font-semibold">
+                {cert.link ? (
+                  <a href={cert.link} target="_blank" rel="noopener noreferrer" className="hover:underline text-indigo-500">
+                    {cert.title}
+                  </a>
+                ) : (
+                  cert.title
+                )}
+              </h3>
               <p className="text-sm text-gray-500 dark:text-gray-400">{cert.date}</p>
             </div>
           </motion.div>

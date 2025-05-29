@@ -81,8 +81,15 @@ export default function Page() {
         <ScrollText className="mx-auto text-indigo-500 w-10 h-10 mb-4" />
         <h2 className="text-3xl font-bold mb-6">Sobre mí</h2>
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-          Soy un Business Intelligence Data Analyst con experiencia en dashboards, automatización y transformación digital. He liderado proyectos con grandes ahorros y mejoras operativas. Me especializo en Power BI, Python y SQL.
+          Soy un profesional en Inteligencia de Negocios y Análisis de Datos con experiencia en manufactura y empresas tecnológicas que brindan servicios en Centroamérica y Estados Unidos.
+          <br /><br />
+          He liderado proyectos de alto impacto como la creación de una sabana de indicadores migrada de Excel a Power BI con ETLs en Python y SQL, generando ahorros de más de $500K USD. También impulsé la transformación digital en planta mediante herramientas como Google Apps Script, logrando ahorros de $200K USD.
+          <br /><br />
+          Actualmente desarrollo dashboards estratégicos, automatizaciones y sistemas de reporting que optimizan ingresos y decisiones para nuestros clientes.  
+          <br /><br />
+          Me especializo en soluciones end-to-end usando Power BI, Power Query, Python, SQL, Excel avanzado, VSCode, RStudio y Google Apps Script.
         </p>
+
       </motion.section>
 
       <motion.section
@@ -99,20 +106,35 @@ export default function Page() {
             <BarChart4 className="mx-auto text-indigo-600 w-8 h-8 mb-4" />
             <h3 className="text-xl font-semibold mb-2">Análisis de Datos</h3>
             <ul className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed list-disc list-inside">
-              <li>Ahorro anual de USD 2M con indicadores en Excel + SQL.</li>
-              <li>Reducción de costos por USD 1M con migración a Power BI.</li>
+              <li>Ahorro anual de USD 100K USD con indicadores en Excel + SQL.</li>
+              <li>Reducción de costos por 400K USD con migración a Power BI.</li>
               <li>Actualizaciones automáticas en Power BI Service.</li>
             </ul>
+            <div className="flex flex-wrap gap-2 mt-3">
+              <span className="bg-indigo-100 text-indigo-700 text-xs font-medium px-2 py-1 rounded-full">Power BI</span>
+              <span className="bg-purple-100 text-purple-700 text-xs font-medium px-2 py-1 rounded-full">Python</span>
+              <span className="bg-yellow-100 text-yellow-700 text-xs font-medium px-2 py-1 rounded-full">Excel</span>
+              <span className="bg-yellow-100 text-yellow-700 text-xs font-medium px-2 py-1 rounded-full">Sql</span>
+            </div>
+
           </div>
           <div>
             <Bot className="mx-auto text-green-500 w-8 h-8 mb-4" />
             <h3 className="text-xl font-semibold mb-2">Automatizaciones</h3>
             <ul className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed list-disc list-inside">
-              <li>20 RPAs en Python para extraer datos desde SAP.</li>
+              <li>20 RPAs en Python para extraer datos desde SAP e interaccion con SQL y Google Drive.</li>
               <li>Integración 24/7 con Windows Task Scheduler.</li>
               <li>Alertas automáticas por correo y WhatsApp.</li>
               <li>Power Automate para monitoreo en Power BI.</li>
             </ul>
+
+            <div className="flex flex-wrap gap-2 mt-3">
+              <span className="bg-indigo-100 text-indigo-700 text-xs font-medium px-2 py-1 rounded-full">Python</span>
+              <span className="bg-purple-100 text-purple-700 text-xs font-medium px-2 py-1 rounded-full">Excel</span>
+              <span className="bg-yellow-100 text-yellow-700 text-xs font-medium px-2 py-1 rounded-full">VsCode</span>
+              <span className="bg-yellow-100 text-yellow-700 text-xs font-medium px-2 py-1 rounded-full">Power Automate</span>
+            </div>
+
           </div>
           <div>
             <Cpu className="mx-auto text-purple-500 w-8 h-8 mb-4" />
@@ -122,6 +144,11 @@ export default function Page() {
               <li>Digitalización de procesos críticos en planta.</li>
               <li>Indicadores en tiempo real con sistemas MES (↑ 2% OEE).</li>
             </ul>
+            <div className="flex flex-wrap gap-2 mt-3">
+              <span className="bg-indigo-100 text-indigo-700 text-xs font-medium px-2 py-1 rounded-full">Google Apps Script</span>
+              <span className="bg-purple-100 text-purple-700 text-xs font-medium px-2 py-1 rounded-full">MES</span>
+              <span className="bg-yellow-100 text-yellow-700 text-xs font-medium px-2 py-1 rounded-full">IOT</span>
+            </div>
           </div>
         </div>
       </motion.section>
