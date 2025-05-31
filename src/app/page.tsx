@@ -1,12 +1,13 @@
 'use client';
 
-import { Mail, Linkedin, Github, BarChart4, Bot, Cpu, Moon, Sun, Code2, ScrollText } from 'lucide-react';
+import { Mail, Linkedin, Github, BarChart4, Bot, Cpu, Code2, ScrollText } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import Hero3D from './components/Hero3D';
 import ContactForm from './components/ContactForm';
 import CertificationsSkillsSection from './components/CertificationsSkillsSection'; 
 import PortfolioGalleryTablet from './components/PortfolioGalleryTablet';
+import DarkModeToggle from './components/DarkModeToggle';
 
 function Loader() {
   return (
@@ -17,18 +18,8 @@ function Loader() {
 }
 
 export default function Page() {
-  const [darkMode, setDarkMode] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-  const html = document.documentElement; // <html> tag
-    if (darkMode) {
-      html.classList.add('dark');
-    } else {
-      html.classList.remove('dark');
-    }
-  }, [darkMode]);
 
   useEffect(() => {
     const onScroll = () => setShowScrollTop(window.scrollY > 300);
@@ -59,9 +50,7 @@ export default function Page() {
             <li><a href="#certifications" className="hover:text-indigo-500 transition-colors">Certificaciones</a></li>
             <li><a href="#contact" className="hover:text-indigo-500 transition-colors">Contacto</a></li>
             <li>
-              <button onClick={() => setDarkMode(prev => !prev)} aria-label="Toggle Dark Mode">
-                {darkMode ? <Sun className="w-5 h-5 text-yellow-300" /> : <Moon className="w-5 h-5 text-gray-600" />}
-              </button>
+              <DarkModeToggle />
             </li>
           </ul>
         </div>
