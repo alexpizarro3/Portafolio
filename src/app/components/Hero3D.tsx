@@ -1,187 +1,34 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, Stars } from '@react-three/drei';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls } from '@react-three/drei';
 import { EffectComposer, Bloom, Noise } from '@react-three/postprocessing';
-import { useRef } from 'react';
-import * as THREE from 'three';
 import { Mail, Linkedin, Github } from 'lucide-react';
 import GargantuaBlackHole from './GargantuaBlackHole';
-
-function GalaxyNebulaShader() {
-  const meshRef = useRef<THREE.Mesh>(null);
-  const materialRef = useRef<THREE.ShaderMaterial>(null);
-
-  useFrame(({ clock }) => {
-    if (materialRef.current) {
-      materialRef.current.uniforms.uTime.value = clock.getElapsedTime();
-    }
-  });
-
-  const uniforms = {
-    uTime: { value: 0 },
-    uColor1: { value: new THREE.Color('#91a7ff') },
-    uColor2: { value: new THREE.Color('#c084fc') }
-  };
-
-  return (
-    <mesh ref={meshRef} scale={6} position={[1, 0, 0]}>
-      <icosahedronGeometry args={[1.8, 6]} />
-      <shaderMaterial
-        ref={materialRef}
-        uniforms={uniforms}
-        vertexShader={`
-          varying vec3 vNormal;
-          void main() {
-            vNormal = normal;
-            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-          }
-        `}
-        fragmentShader={`
-          uniform float uTime;
-          uniform vec3 uColor1;
-          uniform vec3 uColor2;
-          varying vec3 vNormal;
-          void main() {
-            float intensity = pow(0.6 - dot(vNormal, vec3(0.0, 0.0, 1.0)), 2.0);
-            float wave = 0.5 + 0.5 * sin(uTime * 1.5 + length(vNormal.xy) * 10.0);
-            vec3 color = mix(uColor1, uColor2, wave);
-            gl_FragColor = vec4(color * intensity, 0.85);
-          }
-        `}
-        transparent
-        side={THREE.DoubleSide}
-      />
-    </mesh>
-  );
-}
-
-function Nebula({ position = [0, 0, 0] as [number, number, number], color = new THREE.Color('#b99aff') }) {
-  const points = new Float32Array(8000).map(() => THREE.MathUtils.randFloatSpread(80));
-  const bufferRef = useRef<THREE.Points>(null);
-  const materialRef = useRef<THREE.ShaderMaterial>(null);
-
-  useFrame(({ clock }) => {
-    if (materialRef.current) {
-      materialRef.current.uniforms.uTime.value = clock.getElapsedTime();
-    }
-  });
-
-  const uniforms = {
-    uTime: { value: 0 },
-    uColor: { value: color }
-  };
-
-  return (
-    <points ref={bufferRef} position={position}>
-      <bufferGeometry>
-        <bufferAttribute attach="attributes-position" args={[points, 3]} />
-      </bufferGeometry>
-      <shaderMaterial
-        ref={materialRef}
-        uniforms={uniforms}
-        vertexShader={`
-          uniform float uTime;
-          varying vec3 vColor;
-          void main() {
-            vec3 pos = position;
-            pos.z += sin(pos.x * 0.1 + uTime * 0.3) * 0.8;
-            vColor = vec3(0.6, 0.5, 1.0);
-            gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
-            gl_PointSize = 2.2 + sin(uTime * 2.0 + pos.x * 0.5) * 0.6;
-          }
-        `}
-        fragmentShader={`
-          varying vec3 vColor;
-          void main() {
-            gl_FragColor = vec4(vColor, 0.32);
-          }
-        `}
-        transparent
-        depthWrite={false}
-      />
-    </points>
-  );
-}
-
-function FogLayer() {
-  const meshRef = useRef<THREE.Mesh>(null);
-  const materialRef = useRef<THREE.ShaderMaterial>(null);
-
-  useFrame(({ clock }) => {
-    if (materialRef.current) {
-      materialRef.current.uniforms.uTime.value = clock.getElapsedTime();
-    }
-  });
-
-  const uniforms = {
-    uTime: { value: 0 }
-  };
-
-  return (
-    <mesh ref={meshRef} scale={[60, 60, 1]} position={[0, 0, -15]}>
-      <planeGeometry args={[1, 1, 64, 64]} />
-      <shaderMaterial
-        ref={materialRef}
-        uniforms={uniforms}
-        vertexShader={`
-          varying vec2 vUv;
-          void main() {
-            vUv = uv;
-            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-          }
-        `}
-        fragmentShader={`
-          uniform float uTime;
-          varying vec2 vUv;
-          float noise(vec2 p) {
-            return fract(sin(dot(p, vec2(12.9898,78.233))) * 43758.5453);
-          }
-          void main() {
-            float n = noise(vUv * 12.0 + uTime * 0.02);
-            float alpha = smoothstep(0.15, 0.75, n);
-            gl_FragColor = vec4(0.4, 0.6, 1.0, alpha * 0.3);
-          }
-        `}
-        transparent
-        depthWrite={false}
-      />
-    </mesh>
-  );
-}
-
-function RotatingBackground() {
-  const groupRef = useRef<THREE.Group>(null);
-
-  useFrame(() => {
-    if (groupRef.current) {
-      groupRef.current.rotation.y += 0.0007;
-    }
-  });
-
-  return (
-    <group ref={groupRef}>
-      <Stars radius={100} depth={60} count={12000} factor={10} saturation={0.5} fade speed={1.2} />
-      <GalaxyNebulaShader />
-      <Nebula />
-      <Nebula position={[-3, -2, -10]} color={new THREE.Color('#84d4fc')} />
-      <FogLayer />
-    </group>
-  );
-}
+import GalaxyNebulaShader from './GalaxyNebulaShader';
+import Nebula from './Nebula';
+import RotatingBackground from './RotatingBackground';
 
 export default function Hero3D() {
   
   return (
-    <section className="relative h-screen w-full overflow-hidden bg-black">
+    <section className="relative h-screen w-full overflow-hidden bg-gradient-to-br from-black via-indigo-950 to-gray-900">
       <a
         href="https://alexispizarroportafolio.vercel.app/"
         className="group absolute top-6 left-6 z-50 flex items-center gap-3"
       >
-        <div className="w-14 h-14 rounded-full bg-gradient-to-br from-purple-500 to-indigo-600 shadow-xl text-white flex items-center justify-center font-extrabold text-2xl group-hover:scale-110 transition-all duration-300">
+        <motion.div
+          whileHover={{
+            scale: 1.15,
+            rotate: [0, 5, -5, 0], // rebote leve
+            boxShadow: '0px 0px 20px rgba(147, 51, 234, 0.8)', // glow morado
+          }}
+          transition={{ type: 'spring', stiffness: 300, damping: 12 }}
+          className="w-14 h-14 rounded-full bg-gradient-to-br from-purple-500 to-indigo-600 shadow-xl text-white flex items-center justify-center font-extrabold text-2xl"
+        >
           AP
-        </div>
+        </motion.div>
         <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white text-lg font-semibold">
           Alexis Pizarro
         </span>
@@ -198,7 +45,7 @@ export default function Hero3D() {
             Alexis Pizarro
           </h1>
           <p className="text-lg sm:text-xl text-indigo-100 leading-relaxed">
-            Business Intelligence Developer <br /> Power BI • Python • SQL • Automatización
+            Business Intelligence Data Analyst <br /> Power BI Developer • Python Automatización • SQL
           </p>
         </motion.div>
       </div>
@@ -240,17 +87,17 @@ export default function Hero3D() {
       </motion.div>
 
       <Canvas className="absolute inset-0 z-0" camera={{ position: [0, 0, 6] }}>
+       
         <ambientLight intensity={0.5} />
         <directionalLight position={[5, 5, 5]} intensity={1.2} />
-
         <RotatingBackground />
         <GargantuaBlackHole />
-
+        <GalaxyNebulaShader />
+        <Nebula />
         <EffectComposer>
           <Bloom intensity={0.65} luminanceThreshold={0.1} luminanceSmoothing={0.85} />
-          <Noise opacity={0.025} />
+          <Noise opacity={0.005} />
         </EffectComposer>
-
         <OrbitControls enableZoom={false} enableRotate={false} enablePan={false} />
       </Canvas>
     </section>

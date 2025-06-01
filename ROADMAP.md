@@ -39,4 +39,13 @@
 
 ---
 
+Sección	Sugerencia	Nivel
+Hero3D	Darle un pequeño parallax o scroll reveal al texto	🟢 Bajo esfuerzo, alto impacto
+Navegación	Scroll suave (react-scroll) a secciones	🟢 Mejora UX móvil
+Portfolio	Agregar etiquetas temáticas (ETL, RPA, Visualización) en los proyectos	🟡 Opcional visual
+GitHub	Botón “⭐ Ver código en GitHub” en algún lugar fijo	🟡 Buen refuerzo para empleadores
+SEO	Revisar title, description, og:image para mejorar cómo se ve al compartir	🟡 Detalle técnico útil
+Accesibilidad	Agregar alt más descriptivos en proyectos y aria-labels en íconos	🔵 Bonus para puntuación Lighthouse
+
+
 > ✨ Este roadmap guía la evolución del portafolio V9 con enfoque en performance, escalabilidad y experiencia visual profesional.

@@ -1,24 +1,10 @@
+'use client';
+
 import { motion } from 'framer-motion';
 import { BarChart4, Bot, Cpu, Code2, ScrollText } from 'lucide-react';
-import { Radar } from 'react-chartjs-2';
-import {
-  Chart as ChartJS,
-  RadialLinearScale,
-  PointElement,
-  LineElement,
-  Filler,
-  Tooltip,
-  Legend,
-} from 'chart.js';
-
-ChartJS.register(
-  RadialLinearScale,
-  PointElement,
-  LineElement,
-  Filler,
-  Tooltip,
-  Legend
-);
+import CertCard from './CertCard';
+import SkillBar from './SkillBar';
+import RadarChart from './RadarChart';
 
 const certifications = [
   { title: 'PL-300 Microsoft', date: 'June 2025', icon: <BarChart4 className="w-6 h-6" /> },
@@ -40,38 +26,6 @@ const skills = [
   { name: 'Apps Script', level: 60 },
 ];
 
-const radarData = {
-  labels: skills.map((s) => s.name),
-  datasets: [
-    {
-      label: 'Nivel de habilidad (%)',
-      data: skills.map((s) => s.level),
-      backgroundColor: 'rgba(99, 102, 241, 0.3)',
-      borderColor: 'rgba(99, 102, 241, 1)',
-      borderWidth: 2,
-      pointBackgroundColor: 'rgba(99, 102, 241, 1)',
-    },
-  ],
-};
-
-const radarOptions = {
-  scales: {
-    r: {
-      beginAtZero: true,
-      suggestedMax: 100,
-      angleLines: { color: '#ccc' },
-      grid: { color: '#eee' },
-      pointLabels: { color: '#333' },
-      ticks: { backdropColor: 'transparent', color: '#555' },
-    },
-  },
-  plugins: {
-    legend: {
-      labels: { color: '#444' },
-    },
-  },
-};
-
 export default function CertificationsSkillsSection() {
   return (
     <motion.section
@@ -90,42 +44,23 @@ export default function CertificationsSkillsSection() {
             key={index}
             whileHover={{ scale: 1.05 }}
             transition={{ type: 'spring', stiffness: 300 }}
-            className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border dark:border-gray-700 flex items-start gap-4"
           >
-            <div className="text-indigo-600 dark:text-indigo-400">{cert.icon}</div>
-            <div>
-              <h3 className="font-semibold">
-                {cert.link ? (
-                  <a href={cert.link} target="_blank" rel="noopener noreferrer" className="hover:underline text-indigo-500">
-                    {cert.title}
-                  </a>
-                ) : (
-                  cert.title
-                )}
-              </h3>
-              <p className="text-sm text-gray-500 dark:text-gray-400">{cert.date}</p>
-            </div>
+            <CertCard {...cert} />
           </motion.div>
         ))}
       </div>
 
       <div className="space-y-6 mb-16">
         {skills.map((skill, index) => (
-          <div key={index}>
-            <div className="flex justify-between mb-1">
-              <span className="font-medium text-gray-800 dark:text-gray-200">{skill.name}</span>
-              <span className="text-sm text-gray-500 dark:text-gray-400">{skill.level}%</span>
-            </div>
-            <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-4">
-              <motion.div
-                initial={{ width: 0 }}
-                whileInView={{ width: `${skill.level}%` }}
-                viewport={{ once: true }}
-                transition={{ duration: 1.2, delay: index * 0.2 }}
-                className="bg-indigo-600 h-4 rounded-full shadow-md"
-              />
-            </div>
-          </div>
+          <motion.div
+            key={index}
+            initial={{ width: 0 }}
+            whileInView={{ width: '100%' }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2, delay: index * 0.2 }}
+          >
+            <SkillBar skill={skill.name} level={skill.level} />
+          </motion.div>
         ))}
       </div>
 
@@ -137,7 +72,7 @@ export default function CertificationsSkillsSection() {
         transition={{ duration: 1 }}
       >
         <h3 className="text-2xl font-semibold text-center mb-4">Radar de Habilidades</h3>
-        <Radar data={radarData} options={radarOptions} />
+        <RadarChart />
       </motion.div>
     </motion.section>
   );

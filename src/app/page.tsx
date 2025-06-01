@@ -3,11 +3,15 @@
 import { Mail, Linkedin, Github, BarChart4, Bot, Cpu, Code2, ScrollText } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import Hero3D from './components/Hero3D';
-import ContactForm from './components/ContactForm';
-import CertificationsSkillsSection from './components/CertificationsSkillsSection'; 
-import PortfolioGalleryTablet from './components/PortfolioGalleryTablet';
 import DarkModeToggle from './components/DarkModeToggle';
+import dynamic from 'next/dynamic';
+import Hero3D from './components/Hero3D';
+import { Eye } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+
+const PortfolioGalleryTablet = dynamic(() => import('./components/PortfolioGalleryTablet'), { ssr: false });
+const CertificationsSkillsSection = dynamic(() => import('./components/CertificationsSkillsSection'), { ssr: false }); // contiene RadarChart
+const ContactForm = dynamic(() => import('./components/ContactForm'), { ssr: false });
 
 function Loader() {
   return (
@@ -18,6 +22,7 @@ function Loader() {
 }
 
 export default function Page() {
+  const { t } = useTranslation();
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [loading, setLoading] = useState(true);
 
@@ -26,6 +31,22 @@ export default function Page() {
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  useEffect(() => {
+    fetch('/api/visits', { method: 'POST' });
+  }, []);
+
+  const [visitCount, setVisitCount] = useState<number | null>(null);
+  useEffect(() => {
+    // Función para obtener el conteo de visitas desde la API
+    const getCount = async () => {
+      const res = await fetch('/api/visits');
+      const data = await res.json();
+      setVisitCount(data.count); // 👈 actualiza el estado
+    };
+    getCount();
+  }, []);
+
 
   useEffect(() => {
     const timeout = setTimeout(() => setLoading(false), 1500);
@@ -58,7 +79,7 @@ export default function Page() {
 
       {/* Hero nuevo con fondo 3D animado */}
       <Hero3D />
-
+      <p>{t('greeting')}</p>
       <motion.section
         id="about"
         className="py-20 px-6 max-w-3xl mx-auto text-center"
@@ -145,7 +166,9 @@ export default function Page() {
       <CertificationsSkillsSection />
       
       <PortfolioGalleryTablet />
-
+      
+      {/* <OrbitingLogos3D /> */}
+      
       <motion.section
         id="contact"
         className="py-20 px-6 max-w-3xl mx-auto text-center"
@@ -172,6 +195,22 @@ export default function Page() {
           </div>
         </div>
       </motion.section>
+      
+      <div className="text-center text-sm text-gray-500 dark:text-gray-400 py-6">
+        {visitCount !== null ? (
+          <motion.div
+            className="inline-flex items-center gap-2 justify-center"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <Eye className="w-5 h-5 text-indigo-500 animate-pulse" />
+            <span className="font-semibold">{visitCount}</span> visitas hasta ahora.
+          </motion.div>
+        ) : (
+          <>Cargando visitas...</>
+        )}
+      </div>
 
       {showScrollTop && (
         <motion.button
