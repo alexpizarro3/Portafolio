@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Mail, User, MessageSquareText } from 'lucide-react';
 import confetti from 'canvas-confetti';
+import emailjs from '@emailjs/browser';
 
 export default function ContactForm() {
   const [formStatus, setFormStatus] = useState<{ success: boolean; message: string } | null>(null);
@@ -20,16 +21,24 @@ export default function ContactForm() {
       return;
     }
 
-    // 🎉 Launch confetti on submit
-    confetti({
-      particleCount: 120,
-      spread: 90,
-      origin: { y: 0.6 },
-      colors: ['#6366f1', '#8b5cf6', '#ec4899'],
+    emailjs.sendForm(
+      'service_d2qb98g',
+      'template_fz6bo88',
+      form,
+      'mAzYVpiHVOTWsu_zo'
+    ).then(() => {
+      confetti({
+        particleCount: 120,
+        spread: 90,
+        origin: { y: 0.6 },
+        colors: ['#6366f1', '#8b5cf6', '#ec4899'],
+      });
+      setFormStatus({ success: true, message: "Message sent successfully!" });
+      form.reset();
+    }).catch((err) => {
+      console.error("EmailJS error:", err);
+      setFormStatus({ success: false, message: "Failed to send message. Try again." });
     });
-
-    setFormStatus({ success: true, message: "Message sent successfully!" });
-    form.reset();
   }
 
   return (
@@ -38,6 +47,9 @@ export default function ContactForm() {
       className="relative p-8 bg-white/10 dark:bg-black/20 backdrop-blur-md rounded-2xl shadow-xl max-w-xl mx-auto space-y-6 border border-indigo-400/30"
     >
       <h3 className="text-2xl font-bold text-center text-indigo-300">Send me a message</h3>
+
+      {/* Hidden field for subject/title */}
+      <input type="hidden" name="title" value="Mensaje desde el portafolio" />
 
       <div className="relative">
         <User className="absolute top-3.5 left-3 w-5 h-5 text-indigo-400" />

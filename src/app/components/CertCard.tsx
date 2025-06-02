@@ -20,7 +20,7 @@ const CertCard: FC<CertCardProps> = ({ title, date, icon, link }) => (
           rel="noopener noreferrer"
           className="text-indigo-500 text-sm hover:underline"
         >
-          Ver Certificado
+          Certificate
         </a>
       )}
     </div>
