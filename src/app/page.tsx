@@ -7,8 +7,6 @@ import DarkModeToggle from './components/DarkModeToggle';
 import dynamic from 'next/dynamic';
 import Hero3D from './components/Hero3D';
 import { Eye } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
-
 const PortfolioGalleryTablet = dynamic(() => import('./components/PortfolioGalleryTablet'), { ssr: false });
 const CertificationsSkillsSection = dynamic(() => import('./components/CertificationsSkillsSection'), { ssr: false }); // contiene RadarChart
 const ContactForm = dynamic(() => import('./components/ContactForm'), { ssr: false });
@@ -22,7 +20,6 @@ function Loader() {
 }
 
 export default function Page() {
-  const { t } = useTranslation();
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [loading, setLoading] = useState(true);
 
@@ -79,7 +76,6 @@ export default function Page() {
 
       {/* Hero nuevo con fondo 3D animado */}
       <Hero3D />
-      <p>{t('greeting')}</p>
       <motion.section
         id="about"
         className="py-20 px-6 max-w-3xl mx-auto text-center"
