@@ -11,7 +11,6 @@ import Nebula from './Nebula';
 import RotatingBackground from './RotatingBackground';
 
 export default function Hero3D() {
-  
   return (
     <section className="relative h-screen w-full overflow-hidden bg-gradient-to-br from-black via-indigo-950 to-gray-900">
       <a
@@ -21,8 +20,8 @@ export default function Hero3D() {
         <motion.div
           whileHover={{
             scale: 1.15,
-            rotate: [0, 5, -5, 0], // rebote leve
-            boxShadow: '0px 0px 20px rgba(147, 51, 234, 0.8)', // glow morado
+            rotate: [0, 5, -5, 0],
+            boxShadow: '0px 0px 20px rgba(147, 51, 234, 0.8)',
           }}
           transition={{ type: 'spring', stiffness: 300, damping: 12 }}
           className="w-14 h-14 rounded-full bg-gradient-to-br from-purple-500 to-indigo-600 shadow-xl text-white flex items-center justify-center font-extrabold text-2xl"
@@ -45,7 +44,8 @@ export default function Hero3D() {
             Alexis Pizarro
           </h1>
           <p className="text-lg sm:text-xl text-indigo-100 leading-relaxed">
-            Business Intelligence Data Analyst <br /> Power BI Developer • Python Automatización • SQL
+            Business Intelligence Data Analyst <br />
+            Power BI Developer • Python Automation • SQL Expert
           </p>
         </motion.div>
       </div>
@@ -56,21 +56,23 @@ export default function Hero3D() {
         transition={{ duration: 0.8, ease: 'easeOut' }}
         className="fixed z-50 flex flex-col sm:flex-col sm:top-1/2 sm:right-2 sm:-translate-y-1/2 sm:space-y-6
           bottom-4 left-1/2 -translate-x-1/2 sm:translate-x-0 sm:bottom-auto sm:left-auto
-          bg-black/50 p-2 sm:p-4 rounded-full backdrop-blur-md shadow-xl space-x-6 sm:space-x-0 flex-row sm:flex-col">
+          bg-black/50 p-2 sm:p-4 rounded-full backdrop-blur-md shadow-xl space-x-6 sm:space-x-0 flex-row sm:flex-col"
+      >
         <a
           href="https://www.gmail.com"
           target="_blank"
           rel="noopener noreferrer"
           className="group relative text-white transition"
         >
-        <Mail className="w-7 h-7 sm:w-11 sm:h-11 group-hover:scale-110 group-hover:text-pink-400 transition-transform duration-300" />
+          <Mail className="w-7 h-7 sm:w-11 sm:h-11 group-hover:scale-110 group-hover:text-pink-400 transition-transform duration-300" />
           <span className="absolute inset-0 rounded-full ring-2 ring-pink-400 opacity-0 group-hover:opacity-60 group-hover:scale-125 transition-all duration-500"></span>
         </a>
         <a
           href="https://www.linkedin.com/in/alexis-pizarro-abarca-9018826b/"
           target="_blank"
           rel="noopener noreferrer"
-          className="group relative text-white transition">
+          className="group relative text-white transition"
+        >
           <Linkedin className="w-7 h-7 sm:w-11 sm:h-11 group-hover:scale-110 group-hover:text-blue-400 transition-transform duration-300" />
           <span className="absolute inset-0 rounded-full ring-2 ring-blue-400 opacity-0 group-hover:opacity-60 group-hover:scale-125 transition-all duration-500"></span>
         </a>
@@ -83,11 +85,9 @@ export default function Hero3D() {
           <Github className="w-7 h-7 sm:w-11 sm:h-11 group-hover:scale-110 group-hover:text-gray-400 transition-transform duration-300" />
           <span className="absolute inset-0 rounded-full ring-2 ring-gray-400 opacity-0 group-hover:opacity-60 group-hover:scale-125 transition-all duration-500"></span>
         </a>
-
       </motion.div>
 
       <Canvas className="absolute inset-0 z-0" camera={{ position: [0, 0, 6] }}>
-       
         <ambientLight intensity={0.5} />
         <directionalLight position={[5, 5, 5]} intensity={1.2} />
         <RotatingBackground />

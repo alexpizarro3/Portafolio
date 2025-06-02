@@ -1,14 +1,14 @@
 'use client';
 
-import { Mail, Linkedin, Github, BarChart4, Bot, Cpu, Code2, ScrollText } from 'lucide-react';
+import { Mail, Linkedin, Github, BarChart4, Bot, Cpu, Code2, ScrollText, Eye } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import DarkModeToggle from './components/DarkModeToggle';
 import dynamic from 'next/dynamic';
 import Hero3D from './components/Hero3D';
-import { Eye } from 'lucide-react';
+
 const PortfolioGalleryTablet = dynamic(() => import('./components/PortfolioGalleryTablet'), { ssr: false });
-const CertificationsSkillsSection = dynamic(() => import('./components/CertificationsSkillsSection'), { ssr: false }); // contiene RadarChart
+const CertificationsSkillsSection = dynamic(() => import('./components/CertificationsSkillsSection'), { ssr: false });
 const ContactForm = dynamic(() => import('./components/ContactForm'), { ssr: false });
 
 function Loader() {
@@ -22,6 +22,7 @@ function Loader() {
 export default function Page() {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [visitCount, setVisitCount] = useState<number | null>(null);
 
   useEffect(() => {
     const onScroll = () => setShowScrollTop(window.scrollY > 300);
@@ -33,17 +34,14 @@ export default function Page() {
     fetch('/api/visits', { method: 'POST' });
   }, []);
 
-  const [visitCount, setVisitCount] = useState<number | null>(null);
   useEffect(() => {
-    // Función para obtener el conteo de visitas desde la API
     const getCount = async () => {
       const res = await fetch('/api/visits');
       const data = await res.json();
-      setVisitCount(data.count); // 👈 actualiza el estado
+      setVisitCount(data.count);
     };
     getCount();
   }, []);
-
 
   useEffect(() => {
     const timeout = setTimeout(() => setLoading(false), 1500);
@@ -63,19 +61,17 @@ export default function Page() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 flex justify-between items-center">
           <h1 className="text-xl sm:text-2xl font-bold flex items-center gap-2"><Code2 className="text-indigo-500" /> Alexis Pizarro</h1>
           <ul className="flex gap-4 sm:gap-6 text-sm sm:text-base text-gray-600 dark:text-gray-300">
-            <li><a href="#about" className="hover:text-indigo-500 transition-colors">Sobre mí</a></li>
-            <li><a href="#projects" className="hover:text-indigo-500 transition-colors">Proyectos</a></li>
-            <li><a href="#certifications" className="hover:text-indigo-500 transition-colors">Certificaciones</a></li>
-            <li><a href="#contact" className="hover:text-indigo-500 transition-colors">Contacto</a></li>
-            <li>
-              <DarkModeToggle />
-            </li>
+            <li><a href="#about" className="hover:text-indigo-500 transition-colors">About</a></li>
+            <li><a href="#projects" className="hover:text-indigo-500 transition-colors">Projects</a></li>
+            <li><a href="#certifications" className="hover:text-indigo-500 transition-colors">Certifications</a></li>
+            <li><a href="#contact" className="hover:text-indigo-500 transition-colors">Contact</a></li>
+            <li><DarkModeToggle /></li>
           </ul>
         </div>
       </motion.nav>
 
-      {/* Hero nuevo con fondo 3D animado */}
       <Hero3D />
+
       <motion.section
         id="about"
         className="py-20 px-6 max-w-3xl mx-auto text-center"
@@ -85,17 +81,16 @@ export default function Page() {
         transition={{ duration: 0.8 }}
       >
         <ScrollText className="mx-auto text-indigo-500 w-10 h-10 mb-4" />
-        <h2 className="text-3xl font-bold mb-6">Sobre mí</h2>
+        <h2 className="text-3xl font-bold mb-6">About Me</h2>
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-          Soy un profesional en Inteligencia de Negocios y Análisis de Datos con experiencia en manufactura y empresas tecnológicas que brindan servicios en Centroamérica y Estados Unidos.
+          I’m a Business Intelligence and Data Analytics professional with experience in manufacturing and tech companies serving clients across Central America and the U.S.
           <br /><br />
-          He liderado proyectos de alto impacto como la creación de una sabana de indicadores migrada de Excel a Power BI con ETLs en Python y SQL, generando ahorros de más de $500K USD. También impulsé la transformación digital en planta mediante herramientas como Google Apps Script, logrando ahorros de $200K USD.
+          I’ve led high-impact projects such as migrating complex Excel-based KPI sheets into Power BI with Python and SQL ETLs, generating over $500K in savings. I also led the digital transformation of plant operations using Google Apps Script, saving an additional $200K.
           <br /><br />
-          Actualmente desarrollo dashboards estratégicos, automatizaciones y sistemas de reporting que optimizan ingresos y decisiones para nuestros clientes.  
+          Currently, I develop strategic dashboards, automations, and reporting systems that boost client revenue and decision-making.
           <br /><br />
-          Me especializo en soluciones end-to-end usando Power BI, Power Query, Python, SQL, Excel avanzado, VSCode, RStudio y Google Apps Script.
+          My specialties include end-to-end BI solutions using Power BI, Power Query, Python, SQL, advanced Excel, VSCode, RStudio, and Google Apps Script.
         </p>
-
       </motion.section>
 
       <motion.section
@@ -106,65 +101,42 @@ export default function Page() {
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
       >
-        <h2 className="text-3xl font-bold mb-10">Proyectos Destacados</h2>
+        <h2 className="text-3xl font-bold mb-10">Featured Projects</h2>
         <div className="grid md:grid-cols-3 gap-8">
           <div>
             <BarChart4 className="mx-auto text-indigo-600 w-8 h-8 mb-4" />
-            <h3 className="text-xl font-semibold mb-2">Análisis de Datos</h3>
+            <h3 className="text-xl font-semibold mb-2">Data Analysis</h3>
             <ul className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed list-disc list-inside">
-              <li>Ahorro anual de USD 100K USD con indicadores en Excel + SQL.</li>
-              <li>Reducción de costos por 400K USD con migración a Power BI.</li>
-              <li>Actualizaciones automáticas en Power BI Service.</li>
+              <li>Saved $100K annually with Excel + SQL KPIs.</li>
+              <li>Reduced costs by $400K through Power BI migration.</li>
+              <li>Automated refresh via Power BI Service.</li>
             </ul>
-            <div className="flex flex-wrap gap-2 mt-3">
-              <span className="bg-indigo-100 text-indigo-700 text-xs font-medium px-2 py-1 rounded-full">Power BI</span>
-              <span className="bg-purple-100 text-purple-700 text-xs font-medium px-2 py-1 rounded-full">Python</span>
-              <span className="bg-yellow-100 text-yellow-700 text-xs font-medium px-2 py-1 rounded-full">Excel</span>
-              <span className="bg-yellow-100 text-yellow-700 text-xs font-medium px-2 py-1 rounded-full">Sql</span>
-            </div>
-
           </div>
           <div>
             <Bot className="mx-auto text-green-500 w-8 h-8 mb-4" />
-            <h3 className="text-xl font-semibold mb-2">Automatizaciones</h3>
+            <h3 className="text-xl font-semibold mb-2">Automations</h3>
             <ul className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed list-disc list-inside">
-              <li>20 RPAs en Python para extraer datos desde SAP e interaccion con SQL y Google Drive.</li>
-              <li>Integración 24/7 con Windows Task Scheduler.</li>
-              <li>Alertas automáticas por correo y WhatsApp.</li>
-              <li>Power Automate para monitoreo en Power BI.</li>
+              <li>20+ Python RPAs for SAP data extraction, SQL interaction, and Google Drive sync.</li>
+              <li>24/7 integration via Windows Task Scheduler.</li>
+              <li>Automated alerts via email and WhatsApp.</li>
+              <li>Monitoring via Power Automate flows.</li>
             </ul>
-
-            <div className="flex flex-wrap gap-2 mt-3">
-              <span className="bg-indigo-100 text-indigo-700 text-xs font-medium px-2 py-1 rounded-full">Python</span>
-              <span className="bg-purple-100 text-purple-700 text-xs font-medium px-2 py-1 rounded-full">Excel</span>
-              <span className="bg-yellow-100 text-yellow-700 text-xs font-medium px-2 py-1 rounded-full">VsCode</span>
-              <span className="bg-yellow-100 text-yellow-700 text-xs font-medium px-2 py-1 rounded-full">Power Automate</span>
-            </div>
-
           </div>
           <div>
             <Cpu className="mx-auto text-purple-500 w-8 h-8 mb-4" />
-            <h3 className="text-xl font-semibold mb-2">Transformación Digital</h3>
+            <h3 className="text-xl font-semibold mb-2">Digital Transformation</h3>
             <ul className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed list-disc list-inside">
-              <li>Apps web con Google Apps Script para datos en tiempo real.</li>
-              <li>Digitalización de procesos críticos en planta.</li>
-              <li>Indicadores en tiempo real con sistemas MES (↑ 2% OEE).</li>
+              <li>Real-time web apps using Google Apps Script.</li>
+              <li>Digitization of critical plant processes.</li>
+              <li>Real-time KPIs via MES systems (↑ 2% OEE).</li>
             </ul>
-            <div className="flex flex-wrap gap-2 mt-3">
-              <span className="bg-indigo-100 text-indigo-700 text-xs font-medium px-2 py-1 rounded-full">Google Apps Script</span>
-              <span className="bg-purple-100 text-purple-700 text-xs font-medium px-2 py-1 rounded-full">MES</span>
-              <span className="bg-yellow-100 text-yellow-700 text-xs font-medium px-2 py-1 rounded-full">IOT</span>
-            </div>
           </div>
         </div>
       </motion.section>
 
       <CertificationsSkillsSection />
-      
       <PortfolioGalleryTablet />
-      
-      {/* <OrbitingLogos3D /> */}
-      
+
       <motion.section
         id="contact"
         className="py-20 px-6 max-w-3xl mx-auto text-center"
@@ -173,25 +145,31 @@ export default function Page() {
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
       >
-        <h2 className="text-3xl font-bold mb-6">Contacto</h2>
+        <h2 className="text-3xl font-bold mb-6">Contact</h2>
         <ContactForm />
         <br />
         <div className="flex flex-col items-center gap-4 text-gray-800 dark:text-gray-200">
           <div className="flex items-center gap-2">
             <Mail className="text-pink-600" />
-            <a href="https://www.gmail.com" target="_blank" rel="noopener noreferrer" className="hover:underline">alexpizarro3@gmail.com</a>
+            <a href="mailto:alexpizarro3@gmail.com" target="_blank" rel="noopener noreferrer" className="hover:underline">
+              alexpizarro3@gmail.com
+            </a>
           </div>
           <div className="flex items-center gap-2">
             <Linkedin className="text-blue-600" />
-            <a href="https://www.linkedin.com/in/alexis-pizarro-abarca-9018826b/" target="_blank" rel="noopener noreferrer" className="hover:underline">linkedin.com/in/alexpizarro3</a>
+            <a href="https://www.linkedin.com/in/alexis-pizarro-abarca-9018826b/" target="_blank" rel="noopener noreferrer" className="hover:underline">
+              linkedin.com/in/alexpizarro3
+            </a>
           </div>
           <div className="flex items-center gap-2">
             <Github className="text-black dark:text-white" />
-            <a href="https://github.com/alexpizarro3" target="_blank" rel="noopener noreferrer" className="hover:underline">github.com/alexpizarro3</a>
+            <a href="https://github.com/alexpizarro3" target="_blank" rel="noopener noreferrer" className="hover:underline">
+              github.com/alexpizarro3
+            </a>
           </div>
         </div>
       </motion.section>
-      
+
       <div className="text-center text-sm text-gray-500 dark:text-gray-400 py-6">
         {visitCount !== null ? (
           <motion.div
@@ -201,10 +179,10 @@ export default function Page() {
             transition={{ duration: 0.8 }}
           >
             <Eye className="w-5 h-5 text-indigo-500 animate-pulse" />
-            <span className="font-semibold">{visitCount}</span> visitas hasta ahora.
+            <span className="font-semibold">{visitCount}</span> visits so far.
           </motion.div>
         ) : (
-          <>Cargando visitas...</>
+          <>Loading visits...</>
         )}
       </div>
 
@@ -213,7 +191,7 @@ export default function Page() {
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           className="fixed bottom-5 right-5 z-50 p-4 text-xl rounded-full bg-indigo-600 text-white shadow-lg hover:bg-indigo-800 hover:scale-110 transition-transform duration-300"
           whileHover={{ scale: 1.2, backgroundColor: '#4f46e5' }}
-          aria-label="Volver arriba"
+          aria-label="Scroll to top"
         >
           ↑
         </motion.button>

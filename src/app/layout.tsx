@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -12,9 +11,9 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: 'Alexis Pizarro - Portafolio',
-  description: 'Portafolio personal y profesional de Alexis Pizarro, experto en Business Intelligence, Power BI y automatización de datos.',
+export const metadata = {
+  title: 'Alexis Pizarro – Data Analytics & BI Portfolio',
+  description: 'Explore the interactive portfolio of Alexis Pizarro, Business Intelligence Analyst and Power BI Developer. Showcasing automated Python workflows, advanced SQL dashboards, and real-world data solutions.'
 };
 
 export default function RootLayout({
