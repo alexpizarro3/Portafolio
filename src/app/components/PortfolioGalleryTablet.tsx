@@ -131,7 +131,7 @@ export default function PortfolioGalleryTablet() {
     <section id="portfolio" className="py-20 px-6 max-w-7xl mx-auto">
       <h2 className="text-3xl font-bold text-center mb-12">Visual Portfolio</h2>
 
-      <div className="flex justify-center gap-6 mb-12">
+      <div className="flex justify-center gap-3 mb-12 overflow-x-auto px-4 max-w-full scrollbar-hide">
         {(['all', 'powerbi', 'python', 'digital'] as const).map((section) => (
           <motion.button
             key={section}
