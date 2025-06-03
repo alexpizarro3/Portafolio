@@ -112,7 +112,7 @@ export default function PortfolioGalleryTablet() {
   const digitalProjects = useMemo(() => projects.filter(p => p.id >= 11), []);
 
   const renderSection = (sectionProjects: Project[]) => (
-    <div id = "portfolio" className="flex flex-col gap-8 mb-20">
+    <div id="portfolio" className="flex flex-col gap-8 mb-20">
       {sectionProjects.map(project => (
         <ProjectCard
           key={project.id}
@@ -131,14 +131,14 @@ export default function PortfolioGalleryTablet() {
     <section id="portfolio" className="py-20 px-6 max-w-7xl mx-auto">
       <h2 className="text-3xl font-bold text-center mb-12">Visual Portfolio</h2>
 
-      <div className="flex justify-center gap-3 mb-12 overflow-x-auto px-4 max-w-full scrollbar-hide">
+      <div className="grid grid-cols-2 sm:flex sm:justify-center sm:gap-3 gap-2 mb-12">
         {(['all', 'powerbi', 'python', 'digital'] as const).map((section) => (
           <motion.button
             key={section}
-            whileHover={{ scale: 1.1 }}
+            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setSelectedSection(section)}
-            className={`px-6 py-3 rounded-full text-md font-semibold transition-colors duration-300 shadow-md ${
+            className={`px-3 py-2 text-sm sm:px-6 sm:py-3 sm:text-md rounded-full font-semibold transition-colors duration-300 shadow-md whitespace-nowrap text-center ${
               selectedSection === section
                 ? section === 'python'
                   ? 'bg-green-600 text-white'
