@@ -1,14 +1,24 @@
-// middleware.ts
-import createMiddleware from 'next-intl/middleware';
+import { NextRequest, NextResponse } from 'next/server';
 
-export default createMiddleware({
-  locales: ['es', 'en'],
-  defaultLocale: 'es'
-});
+export function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+
+  // Permitir acceso si ya está en /es, o accediendo a assets públicos
+  if (
+    pathname.startsWith('/es') ||
+    pathname.startsWith('/_next') ||
+    pathname.startsWith('/favicon.ico') ||
+    pathname.startsWith('/api')
+  ) {
+    return NextResponse.next();
+  }
+
+  // Redirigir todo lo demás a /es
+  const url = request.nextUrl.clone();
+  url.pathname = `/es${pathname}`;
+  return NextResponse.redirect(url);
+}
 
 export const config = {
-  matcher: [
-    // Ruta base del sitio (home, páginas)
-    '/((?!_next|favicon.ico|public|images|api).*)'
-  ]
+  matcher: ['/((?!_next|favicon.ico|api|public|images).*)'],
 };

@@ -1,11 +1,8 @@
-import type { NextConfig } from 'next';
-
-const nextConfig: NextConfig = {
-  i18n: {
-    locales: ['es', 'en'],
-    defaultLocale: 'es',
-  },
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  swcMinify: true,
+  // No incluir i18n por el momento
 };
 
 export default nextConfig;
-
