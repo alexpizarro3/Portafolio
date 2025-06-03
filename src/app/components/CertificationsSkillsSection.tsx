@@ -15,6 +15,7 @@ const certifications = [
   { title: 'Azure Fundamentals – Great Learning', date: '2023', icon: <Cpu className="w-6 h-6" />, link: 'https://www.mygreatlearning.com/certificate/AVSUSFFM' },
   { title: 'Power BI – Grow Up Academy', date: '2019', icon: <Bot className="w-6 h-6" />, link: 'https://drive.google.com/file/d/1klqmpwbXokHu5weeWDH47CFwULqYoXpz/view?usp=sharing' },
   { title: 'EF SET English B2-C1', date: '2023', icon: <ScrollText className="w-6 h-6" />, link: 'https://cert.efset.org/7VCg9k' },
+  { title: 'Conversational English INA CS', date: '2014', icon: <ScrollText className="w-6 h-6" />, link: 'https://drive.google.com/file/d/18QNfnCv4Se03NyOD8zCxnlnLzdXRjIPg/view?usp=sharing' }
 ];
 
 const skills = [

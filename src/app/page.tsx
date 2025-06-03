@@ -3,13 +3,14 @@
 import { Mail, Linkedin, Github, BarChart4, Bot, Cpu, Code2, ScrollText, Eye } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import DarkModeToggle from './components/DarkModeToggle';
 import dynamic from 'next/dynamic';
 import Hero3D from './components/Hero3D';
+import CVSection from './components/CVSection';
 
 const PortfolioGalleryTablet = dynamic(() => import('./components/PortfolioGalleryTablet'), { ssr: false });
 const CertificationsSkillsSection = dynamic(() => import('./components/CertificationsSkillsSection'), { ssr: false });
 const ContactForm = dynamic(() => import('./components/ContactForm'), { ssr: false });
+const FaqAssistant = dynamic(() => import('./components/FaqAssistant'), { ssr: false });
 
 function Loader() {
   return (
@@ -62,10 +63,13 @@ export default function Page() {
           <h1 className="text-xl sm:text-2xl font-bold flex items-center gap-2"><Code2 className="text-indigo-500" /> Alexis Pizarro</h1>
           <ul className="flex gap-4 sm:gap-6 text-sm sm:text-base text-gray-600 dark:text-gray-300">
             <li><a href="#about" className="hover:text-indigo-500 transition-colors">About</a></li>
+            <li><a href="#about" className="hover:text-indigo-500 transition-colors">Downloads</a></li>
             <li><a href="#projects" className="hover:text-indigo-500 transition-colors">Projects</a></li>
             <li><a href="#certifications" className="hover:text-indigo-500 transition-colors">Certifications</a></li>
+            <li><a href="#portfolio" className="hover:text-indigo-500 transition-colors">Portfolio</a></li>
             <li><a href="#contact" className="hover:text-indigo-500 transition-colors">Contact</a></li>
-            <li><DarkModeToggle /></li>
+            <li><a href="#faqs" className="hover:text-indigo-500 transition-colors">Faqs</a></li>
+            {/*<li><DarkModeToggle /></li>*/}
           </ul>
         </div>
       </motion.nav>
@@ -83,16 +87,16 @@ export default function Page() {
         <ScrollText className="mx-auto text-indigo-500 w-10 h-10 mb-4" />
         <h2 className="text-3xl font-bold mb-6">About Me</h2>
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-          I’m a Business Intelligence and Data Analytics professional with experience in manufacturing and tech companies serving clients across Central America and the U.S.
+          I’m a System Engineer and a Business Intelligence and Data Analytics professional with experience in manufacturing and tech companies serving clients across Central America and the U.S. with more than 5 years of experience in data analysis, business intelligence and digital transformation.
           <br /><br />
           I’ve led high-impact projects such as migrating complex Excel-based KPI sheets into Power BI with Python and SQL ETLs, generating over $500K in savings. I also led the digital transformation of plant operations using Google Apps Script, saving an additional $200K.
           <br /><br />
-          Currently, I develop strategic dashboards, automations, and reporting systems that boost client revenue and decision-making.
+          Currently, I am deploying Bussiness Intelligence and developing strategic dashboards, automations, and reporting systems that boost client revenue and decision-making.
           <br /><br />
           My specialties include end-to-end BI solutions using Power BI, Power Query, Python, SQL, advanced Excel, VSCode, RStudio, and Google Apps Script.
         </p>
       </motion.section>
-
+      <CVSection />
       <motion.section
         id="projects"
         className="py-20 px-6 max-w-5xl mx-auto text-center"
@@ -169,7 +173,7 @@ export default function Page() {
           </div>
         </div>
       </motion.section>
-
+      <FaqAssistant />
       <div className="text-center text-sm text-gray-500 dark:text-gray-400 py-6">
         {visitCount !== null ? (
           <motion.div

@@ -9,6 +9,7 @@ import GargantuaBlackHole from './GargantuaBlackHole';
 import GalaxyNebulaShader from './GalaxyNebulaShader';
 import Nebula from './Nebula';
 import RotatingBackground from './RotatingBackground';
+import VisitCounter from './VisitCounter';
 
 export default function Hero3D() {
   return (
@@ -31,6 +32,7 @@ export default function Hero3D() {
         <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white text-lg font-semibold">
           Alexis Pizarro
         </span>
+        <VisitCounter />
       </a>
 
       <div className="absolute top-0 left-0 z-10 h-full w-full flex flex-col items-start justify-center px-10 gap-4">
@@ -44,8 +46,9 @@ export default function Hero3D() {
             Alexis Pizarro
           </h1>
           <p className="text-lg sm:text-xl text-indigo-100 leading-relaxed">
+            System Engineer <br />
             Business Intelligence Data Analyst <br />
-            Power BI Developer • Python Automation • SQL Expert
+            Power BI Developer • Python Automation • SQL ETL
           </p>
         </motion.div>
       </div>

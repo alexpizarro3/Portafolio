@@ -80,22 +80,39 @@ const projects: Project[] = [
     image: '/portfolio/project10.webp',
     technologies: ['Python', 'API', 'Pandas', 'JSON', 'SQL'],
     link: 'https://github.com/alexpizarro3/python/blob/main/ApiShoplogix'
+  },
+  {
+    id: 11,
+    title: 'Interactive Portfolio Development',
+    description: 'Full development of this personal website using Next.js, Tailwind, 3D animations, multilingual support, and dynamic sections to showcase projects, skills, and certifications.',
+    image: '/portfolio/project11.webp',
+    technologies: ['Next.js', 'Tailwind CSS', 'Three.js', 'Framer Motion', 'React', 'TypeScript'],
+    link: 'https://alexispizarroportafolio.vercel.app/'
+  },
+  {
+    id: 12,
+    title: 'Manufacturing Digitalization with MES',
+    description: 'Implementation of a paperless solution using MES software like Shoplogix. Real-time data capture and dashboards enabled informed decisions on the production floor. Achieved $150,000 USD in annual savings.',
+    image: '/portfolio/project12.webp',
+    technologies: ['MES', 'Shoplogix', 'APIs', 'SQL Server', 'Automation'],
+    link: 'https://github.com/alexpizarro3/python/blob/main/ApiShoplogix'
   }
 ];
 
 export default function PortfolioGalleryTablet() {
   const [activeProject, setActiveProject] = useState<number | null>(null);
-  const [selectedSection, setSelectedSection] = useState<'all' | 'powerbi' | 'python'>('all');
+  const [selectedSection, setSelectedSection] = useState<'all' | 'powerbi' | 'python' | 'digital'>('all');
 
   const handleHover = useCallback((id: number | null) => {
     setActiveProject(id);
   }, []);
 
   const powerBIProjects = useMemo(() => projects.filter(p => p.id <= 5), []);
-  const pythonProjects = useMemo(() => projects.filter(p => p.id > 5), []);
+  const pythonProjects = useMemo(() => projects.filter(p => p.id > 5 && p.id <= 10), []);
+  const digitalProjects = useMemo(() => projects.filter(p => p.id >= 11), []);
 
   const renderSection = (sectionProjects: Project[]) => (
-    <div className="flex flex-col gap-8 mb-20">
+    <div id = "portfolio" className="flex flex-col gap-8 mb-20">
       {sectionProjects.map(project => (
         <ProjectCard
           key={project.id}
@@ -115,21 +132,29 @@ export default function PortfolioGalleryTablet() {
       <h2 className="text-3xl font-bold text-center mb-12">Visual Portfolio</h2>
 
       <div className="flex justify-center gap-6 mb-12">
-        {['all', 'powerbi', 'python'].map(section => (
+        {(['all', 'powerbi', 'python', 'digital'] as const).map((section) => (
           <motion.button
             key={section}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => setSelectedSection(section as 'all' | 'powerbi' | 'python')}
+            onClick={() => setSelectedSection(section)}
             className={`px-6 py-3 rounded-full text-md font-semibold transition-colors duration-300 shadow-md ${
               selectedSection === section
                 ? section === 'python'
                   ? 'bg-green-600 text-white'
+                  : section === 'digital'
+                  ? 'bg-yellow-600 text-white'
                   : 'bg-indigo-600 text-white'
                 : 'bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200'
             }`}
           >
-            {section === 'all' ? 'View All' : section === 'powerbi' ? 'Power BI' : 'Python'}
+            {section === 'all'
+              ? 'View All'
+              : section === 'powerbi'
+              ? 'Power BI'
+              : section === 'python'
+              ? 'Python'
+              : 'Digital Tft'}
           </motion.button>
         ))}
       </div>
@@ -149,6 +174,15 @@ export default function PortfolioGalleryTablet() {
             🔵 Python & Automation
           </h3>
           {renderSection(pythonProjects)}
+        </>
+      )}
+
+      {(selectedSection === 'all' || selectedSection === 'digital') && (
+        <>
+          <h3 className="text-2xl font-semibold mb-8 text-yellow-800 dark:text-yellow-300 border-b-2 border-yellow-400 pb-2">
+            🟡 Digital Tft
+          </h3>
+          {renderSection(digitalProjects)}
         </>
       )}
     </section>

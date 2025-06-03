@@ -20,15 +20,19 @@ export async function GET() {
 export async function POST() {
   const supabase = createClient();
 
-  const { data, error } = await supabase
-    .from('visits')
-    .upsert({ slug: 'home', count: 1 }, { onConflict: 'slug', ignoreDuplicates: false, count: 'exact' })
-    .select();
+  const { error } = await supabase.rpc('increment_visit', { page_slug: 'home' });
 
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
-  if (data)  return NextResponse.json({ count: data[0].count });
 
-  await supabase.rpc('increment_visit', { page_slug: 'home' });
+  // Obtener el valor actualizado después del incremento
+  const { data, error: selectError } = await supabase
+    .from('visits')
+    .select('count')
+    .eq('slug', 'home')
+    .single();
 
-  return NextResponse.json({ success: true });
+  if (selectError) return NextResponse.json({ error: selectError.message }, { status: 500 });
+
+  return NextResponse.json({ count: data.count });
 }
+
