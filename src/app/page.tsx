@@ -193,7 +193,7 @@ export default function Page() {
       {showScrollTop && (
         <motion.button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="fixed bottom-5 right-5 z-50 p-4 text-xl rounded-full bg-indigo-600 text-white shadow-lg hover:bg-indigo-800 hover:scale-110 transition-transform duration-300"
+          className="fixed bottom-5 right-5 z-50 p-4 text-xl rounded-full bg-indigo-600 text-white shadow-lg hover:bg-indigo-800 transition-transform duration-300 max-w-[90vw] overflow-hidden"
           whileHover={{ scale: 1.2, backgroundColor: '#4f46e5' }}
           aria-label="Scroll to top"
         >
