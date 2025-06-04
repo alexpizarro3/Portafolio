@@ -80,19 +80,34 @@ export default function Page() {
       </motion.nav>
 
       {isMobile ? (
-  <section className="relative h-[600px] lg:h-[750px] flex items-center justify-center bg-gradient-to-br from-indigo-900 to-black overflow-hidden">
-    <img
-      src="/portfolio/movilStatic.webp"
-      alt="Static Hero3D Image"
-      className="absolute inset-0 w-full h-full object-cover opacity-90"
-    />
-    <div className="absolute text-white text-3xl md:text-5xl font-extrabold tracking-wide text-center px-6">
-      Alexis Pizarro<br />Data & BI Portfolio
-    </div>
-  </section>
-) : (
-  <Hero3D />
-)}
+        <section className="relative h-[600px] flex items-center justify-center bg-gradient-to-br from-indigo-900 to-black overflow-hidden">
+          <img
+            src="/portfolio/movilStatic.webp"
+            alt="Static Hero3D Image"
+            className="absolute inset-0 w-full h-full object-cover opacity-90"
+          />
+          <div className="absolute top-0 left-0 z-10 h-full w-full flex flex-col items-start justify-center px-10 gap-4">
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              className="max-w-xl bg-gradient-to-r from-indigo-900/70 to-purple-800/70 p-6 rounded-2xl shadow-2xl backdrop-blur-md border border-indigo-500/30"
+            >
+              <h1 className="text-4xl sm:text-xl font-extrabold text-white leading-snug mb-4">
+                Alexis Pizarro
+              </h1>
+              <p className="text-lg sm:text-xl text-indigo-100 leading-relaxed">
+                System Engineer <br />
+                Business Intelligence Data Analyst <br />
+                Power BI Developer • Python Automation • SQL ETL
+              </p>
+            </motion.div>
+          </div>
+        </section>
+      ) : (
+        <Hero3D />
+      )
+}
 
       <motion.section
         id="about"
