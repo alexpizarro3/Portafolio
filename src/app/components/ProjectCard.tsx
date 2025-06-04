@@ -25,8 +25,7 @@ const ProjectCard = React.memo(({ project, isActive, onHover, onClick }: Props) 
       type: 'spring',
       damping: 20,
       stiffness: 100,
-      delay: project.id * 0.08,
-      duration: 0.8,
+      duration: 0.6, // sin delay
     }}
     viewport={{ once: true, amount: 0.2 }}
     className={`relative flex flex-col md:flex-row items-center gap-6 cursor-pointer transition-all duration-500 rounded-xl p-4 ${
@@ -52,6 +51,8 @@ const ProjectCard = React.memo(({ project, isActive, onHover, onClick }: Props) 
           alt={project.title}
           width={600}
           height={375}
+          loading="lazy"
+          placeholder="empty" // o usa 'blur' si tienes los datos
           className={`rounded-xl w-full h-full ${
             project.id === 6 ? 'object-contain' : 'object-cover'
           }`}
