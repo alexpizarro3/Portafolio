@@ -79,7 +79,20 @@ export default function Page() {
         </div>
       </motion.nav>
 
-      {!isMobile && <Hero3D />}
+      {isMobile ? (
+  <section className="relative h-[600px] lg:h-[750px] flex items-center justify-center bg-gradient-to-br from-indigo-900 to-black overflow-hidden">
+    <img
+      src="/portfolio/movilStatic.webp"
+      alt="Static Hero3D Image"
+      className="absolute inset-0 w-full h-full object-cover opacity-90"
+    />
+    <div className="absolute text-white text-3xl md:text-5xl font-extrabold tracking-wide text-center px-6">
+      Alexis Pizarro<br />Data & BI Portfolio
+    </div>
+  </section>
+) : (
+  <Hero3D />
+)}
 
       <motion.section
         id="about"
