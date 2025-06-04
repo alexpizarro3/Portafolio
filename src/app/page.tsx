@@ -86,17 +86,17 @@ export default function Page() {
             alt="Static Hero3D Image"
             className="absolute inset-0 w-full h-full object-cover opacity-90"
           />
-          <div className="absolute top-0 left-0 z-10 h-full w-full flex flex-col items-start justify-center px-10 gap-4">
+          <div className="absolute inset-0 z-10 flex items-center justify-center px-4 md:px-10 pt-8 md:pt-0">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
-              className="max-w-xl bg-gradient-to-r from-indigo-900/70 to-purple-800/70 p-6 rounded-2xl shadow-2xl backdrop-blur-md border border-indigo-500/30"
+              className="w-full max-w-sm sm:max-w-md bg-gradient-to-r from-indigo-900/70 to-purple-800/70 p-4 sm:p-6 rounded-2xl shadow-xl backdrop-blur-md border border-indigo-500/30"
             >
-              <h1 className="text-4xl sm:text-xl font-extrabold text-white leading-snug mb-4">
+              <h1 className="text-2xl sm:text-3xl font-extrabold text-white leading-snug mb-2 text-center">
                 Alexis Pizarro
               </h1>
-              <p className="text-lg sm:text-xl text-indigo-100 leading-relaxed">
+              <p className="text-sm sm:text-base text-indigo-100 leading-relaxed text-center">
                 System Engineer <br />
                 Business Intelligence Data Analyst <br />
                 Power BI Developer • Python Automation • SQL ETL
