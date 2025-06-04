@@ -6,11 +6,16 @@ import { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import Hero3D from './components/Hero3D';
 import CVSection from './components/CVSection';
+import { useIsMobile } from '../hooks/useIsMobile';
 
 const PortfolioGalleryTablet = dynamic(() => import('./components/PortfolioGalleryTablet'), { ssr: false });
-const CertificationsSkillsSection = dynamic(() => import('./components/CertificationsSkillsSection'), { ssr: false });
 const ContactForm = dynamic(() => import('./components/ContactForm'), { ssr: false });
 const FaqAssistant = dynamic(() => import('./components/FaqAssistant'), { ssr: false });
+
+const CertificationsSkillsSection = dynamic(() => import('./components/CertificationsSkillsSection'), {
+  ssr: false,
+  loading: () => <div className="text-center py-10">Loading certifications...</div>
+});
 
 function Loader() {
   return (
@@ -24,6 +29,7 @@ export default function Page() {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [loading, setLoading] = useState(true);
   const [visitCount, setVisitCount] = useState<number | null>(null);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const onScroll = () => setShowScrollTop(window.scrollY > 300);
@@ -69,12 +75,11 @@ export default function Page() {
             <li><a href="#portfolio" className="hover:text-indigo-500 transition-colors">Portfolio</a></li>
             <li><a href="#contact" className="hover:text-indigo-500 transition-colors">Contact</a></li>
             <li><a href="#faqs" className="hover:text-indigo-500 transition-colors">Faqs</a></li>
-            {/*<li><DarkModeToggle /></li>*/}
           </ul>
         </div>
       </motion.nav>
 
-      <Hero3D />
+      {!isMobile && <Hero3D />}
 
       <motion.section
         id="about"
@@ -96,7 +101,9 @@ export default function Page() {
           My specialties include end-to-end BI solutions using Power BI, Power Query, Python, SQL, advanced Excel, VSCode, RStudio, and Google Apps Script.
         </p>
       </motion.section>
+
       <CVSection />
+
       <motion.section
         id="projects"
         className="py-20 px-6 max-w-5xl mx-auto text-center"
@@ -138,7 +145,7 @@ export default function Page() {
         </div>
       </motion.section>
 
-      <CertificationsSkillsSection />
+      {!isMobile && <CertificationsSkillsSection />}
       <PortfolioGalleryTablet />
 
       <motion.section
@@ -173,6 +180,7 @@ export default function Page() {
           </div>
         </div>
       </motion.section>
+
       <FaqAssistant />
       <div className="text-center text-sm text-gray-500 dark:text-gray-400 py-6">
         {visitCount !== null ? (
