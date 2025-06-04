@@ -13,21 +13,26 @@ interface Props {
   onClick: () => void;
 }
 
+// Detecta si estamos en mobile (<= 768px)
+const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
+
 const ProjectCard = React.memo(({ project, isActive, onHover, onClick }: Props) => (
   <motion.div
     key={project.id}
     onClick={onClick}
     onMouseEnter={() => onHover(project.id)}
     onMouseLeave={() => onHover(null)}
-    initial={{ opacity: 0, y: 40 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{
-      type: 'spring',
-      damping: 20,
-      stiffness: 100,
-      duration: 0.6, // sin delay
-    }}
-    viewport={{ once: true, amount: 0.2 }}
+    {...(!isMobile && {
+      initial: { opacity: 0, y: 40 },
+      whileInView: { opacity: 1, y: 0 },
+      transition: {
+        type: 'spring',
+        damping: 20,
+        stiffness: 100,
+        duration: 0.6,
+      },
+      viewport: { once: true, amount: 0.2 },
+    })}
     className={`relative flex flex-col md:flex-row items-center gap-6 cursor-pointer transition-all duration-500 rounded-xl p-4 ${
       isActive
         ? 'scale-100 bg-white dark:bg-gray-900 shadow-xl z-20'
@@ -42,7 +47,7 @@ const ProjectCard = React.memo(({ project, isActive, onHover, onClick }: Props) 
 
     <div className="w-full md:w-3/5 flex justify-center">
       <motion.div
-        whileHover={{ scale: 1.03 }}
+        whileHover={!isMobile ? { scale: 1.03 } : undefined}
         transition={{ duration: 0.3, ease: 'easeInOut' }}
         className="relative w-full max-w-[600px] aspect-[16/10] bg-black rounded-xl border-[6px] border-gray-900 shadow-2xl overflow-hidden"
       >
@@ -52,7 +57,7 @@ const ProjectCard = React.memo(({ project, isActive, onHover, onClick }: Props) 
           width={600}
           height={375}
           loading="lazy"
-          placeholder="empty" // o usa 'blur' si tienes los datos
+          placeholder="empty"
           className={`rounded-xl w-full h-full ${
             project.id === 6 ? 'object-contain' : 'object-cover'
           }`}
