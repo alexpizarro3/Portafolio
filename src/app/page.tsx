@@ -58,9 +58,9 @@ export default function Page() {
   if (loading) return <Loader />;
 
   return (
-    <main className="min-h-screen font-sans tracking-tight bg-gradient-to-b from-indigo-100 via-white to-white dark:from-gray-900 dark:to-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-500">
+    <main className="pt-20 min-h-screen font-sans tracking-tight bg-gradient-to-b from-indigo-100 via-white to-white dark:from-gray-900 dark:to-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-500">
       <motion.nav
-        className="sticky top-0 z-50 bg-white/80 dark:bg-gray-800/90 backdrop-blur border-b py-4 shadow-sm"
+        className="fixed top-0 left-0 w-full z-50 bg-white/80 dark:bg-gray-800/90 backdrop-blur border-b py-4 shadow-sm"
         initial={{ y: -60, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6 }}
