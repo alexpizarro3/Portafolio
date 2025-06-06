@@ -173,7 +173,7 @@ export default function Page() {
         </div>
       </motion.section>
 
-      {!isMobile && <CertificationsSkillsSection />}
+      <CertificationsSkillsSection />
       <PortfolioGalleryTablet />
 
       <motion.section
