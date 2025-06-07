@@ -47,6 +47,7 @@ export default function Hero3D() {
           </h1>
           <p className="text-lg sm:text-xl text-indigo-100 leading-relaxed">
             System Engineer <br />
+            Senior Lead Planner Production <br />
             Business Intelligence Data Analyst <br />
             Power BI Developer • Python Automation • SQL ETL
           </p>
