@@ -1,6 +1,6 @@
 'use client';
 
-import { Mail, Linkedin, Github, BarChart4, Bot, Cpu, Code2, ScrollText, Eye } from 'lucide-react';
+import { Mail, Linkedin, Github, BarChart4, Bot, Factory, Cpu, Code2, ScrollText, Eye } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
@@ -9,6 +9,7 @@ import CVSection from './components/CVSection';
 import { useIsMobile } from '../hooks/useIsMobile';
 
 const PortfolioGalleryTablet = dynamic(() => import('./components/PortfolioGalleryTablet'), { ssr: false });
+const ProductionPlanningSection = dynamic(() => import('./components/ProductionPlanningSection'), { ssr: false });
 const ContactForm = dynamic(() => import('./components/ContactForm'), { ssr: false });
 const FaqAssistant = dynamic(() => import('./components/FaqAssistant'), { ssr: false });
 
@@ -70,7 +71,7 @@ export default function Page() {
           <ul className="flex gap-4 sm:gap-6 text-sm sm:text-base text-gray-600 dark:text-gray-300 overflow-x-auto whitespace-nowrap max-w-full scrollbar-hide">
             <li><a href="#about" className="hover:text-indigo-500 transition-colors">About</a></li>
             <li><a href="#about" className="hover:text-indigo-500 transition-colors">Downloads</a></li>
-            <li><a href="#projects" className="hover:text-indigo-500 transition-colors">Projects</a></li>
+            <li><a href="#production-planning" className="hover:text-indigo-500 transition-colors">Planning</a></li>
             <li><a href="#certifications" className="hover:text-indigo-500 transition-colors">Certifications</a></li>
             <li><a href="#portfolio" className="hover:text-indigo-500 transition-colors">Portfolio</a></li>
             <li><a href="#contact" className="hover:text-indigo-500 transition-colors">Contact</a></li>
@@ -120,11 +121,13 @@ export default function Page() {
         <ScrollText className="mx-auto text-indigo-500 w-10 h-10 mb-4" />
         <h2 className="text-3xl font-bold mb-6">About Me</h2>
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-          I’m a System Engineer and a Business Intelligence and Data Analytics professional with experience in manufacturing and tech companies serving clients across Central America and the U.S. with more than 5 years of experience in data analysis, business intelligence and digital transformation.
+          I’m a System Engineer and a Business Intelligence and Data Analytics professional with experience in manufacturing and tech companies serving clients across Central America and the U.S. with more than 5 years of experience in data analysis, business intelligence, production planning, and digital transformation.
           <br /><br />
           I’ve led high-impact projects such as migrating complex Excel-based KPI sheets into Power BI with Python and SQL ETLs, generating over $500K in savings. I also led the digital transformation of plant operations using Google Apps Script, saving an additional $200K.
           <br /><br />
-          Currently, I am deploying Bussiness Intelligence and developing strategic dashboards, automations, and reporting systems that boost client revenue and decision-making.
+          Notably, I have 5+ years of experience in production planning and execution, including MPS and simulated MRP models using Python, cost analysis per process order, CAPEX project leadership, energy efficiency initiatives 50K Usd saves, and KPI dashboards for service level and manufacturing performance.
+          <br /><br />
+          Currently, I am deploying Business Intelligence and developing strategic dashboards, automations, and reporting systems that boost client revenue and decision-making.
           <br /><br />
           My specialties include end-to-end BI solutions using Power BI, Power Query, Python, SQL, advanced Excel, VSCode, RStudio, and Google Apps Script.
         </p>
@@ -134,14 +137,14 @@ export default function Page() {
 
       <motion.section
         id="projects"
-        className="py-20 px-6 max-w-5xl mx-auto text-center"
+        className="py-20 px-6 max-w-6xl mx-auto text-center"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
       >
         <h2 className="text-3xl font-bold mb-10">Featured Projects</h2>
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-4 gap-8">
           <div>
             <BarChart4 className="mx-auto text-indigo-600 w-8 h-8 mb-4" />
             <h3 className="text-xl font-semibold mb-2">Data Analysis</h3>
@@ -170,10 +173,23 @@ export default function Page() {
               <li>Real-time KPIs via MES systems (↑ 2% OEE).</li>
             </ul>
           </div>
+          <div>
+            <Factory className="mx-auto text-yellow-500 w-8 h-8 mb-4" />
+            <h3 className="text-xl font-semibold mb-2">Planning & Execution</h3>
+            <ul className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed list-disc list-inside">
+              <li>MRP simulations with Python + Excel.</li>
+              <li>Production plan compliance and KPI dashboards.</li>
+              <li>CAPEX project leadership for plant upgrades.</li>
+              <li>150K USD savings.</li>
+              <li>Cost analysis per process order.</li>
+            </ul>
+          </div>
         </div>
       </motion.section>
 
+
       <CertificationsSkillsSection />
+      <ProductionPlanningSection />
       <PortfolioGalleryTablet />
 
       <motion.section
