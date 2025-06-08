@@ -4,9 +4,10 @@ import { Mail, Linkedin, Github, BarChart4, Bot, Factory, Cpu, Code2, ScrollText
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
-import Hero3D from './components/Hero3D';
+//import Hero3D from './components/Hero3D';
 import CVSection from './components/CVSection';
 import { useIsMobile } from '../hooks/useIsMobile';
+import Hero3DMinimal from './components/Hero3DMinimal';
 
 const PortfolioGalleryTablet = dynamic(() => import('./components/PortfolioGalleryTablet'), { ssr: false });
 const ProductionPlanningSection = dynamic(() => import('./components/ProductionPlanningSection'), { ssr: false });
@@ -106,7 +107,7 @@ export default function Page() {
           </div>
         </section>
       ) : (
-        <Hero3D />
+        <Hero3DMinimal />
       )
 }
 
@@ -241,7 +242,7 @@ export default function Page() {
           <>Loading visits...</>
         )}
       </div>
-
+      
       {showScrollTop && (
         <motion.button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
