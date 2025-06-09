@@ -14,7 +14,7 @@ export default function Hero3DMinimal() {
     const handleScroll = () => {
       const scrolled = window.scrollY;
       setShowScrollTop(scrolled > window.innerHeight / 2);
-      setShowScrollIcon(scrolled < window.innerHeight - 100);
+      setShowScrollIcon(scrolled < window.innerHeight - 50); // Más sensible para móviles
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -40,7 +40,7 @@ export default function Hero3DMinimal() {
 
       {showScrollIcon && (
         <motion.div
-          className="fixed bottom-5 left-1/2 -translate-x-1/2 z-40 p-5 text-4xl rounded-full bg-indigo-600 text-white shadow-lg hover:bg-indigo-800 cursor-default"
+          className="fixed bottom-4 left-1/2 -translate-x-1/2 z-40 p-4 text-4xl rounded-full bg-indigo-600 text-white shadow-lg hover:bg-indigo-800 cursor-default sm:bottom-5"
           animate={{ y: [0, 15, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
           aria-hidden="true"
