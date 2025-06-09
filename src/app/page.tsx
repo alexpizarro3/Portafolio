@@ -101,7 +101,7 @@ export default function Page() {
                 Alexis Pizarro
               </h1>
               <p className="text-sm sm:text-base text-indigo-100 leading-relaxed text-center">
-                System Engineer <br />
+                System Engineer · Senior Lead Production Planner <br />
                 Business Intelligence Data Analyst <br />
                 Power BI Developer • Python Automation • SQL ETL
               </p>
@@ -109,7 +109,7 @@ export default function Page() {
           </div>
 
           {/* Scroll Down separadamente para no tapar el contenido */}
-          <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center">
+          <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center">
             <motion.div
               animate={{ y: [0, 15, 0] }}
               transition={{ duration: 1.5, repeat: Infinity }}
@@ -117,7 +117,7 @@ export default function Page() {
             >
               ↓
             </motion.div>
-            <span className="mt-1 text-white text-xs opacity-70">Scroll down</span>
+            <span className="mt-1 text-white text-xs opacity-70"> </span>
           </div>
         </section>
       ) : (
