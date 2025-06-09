@@ -104,6 +104,16 @@ export default function Page() {
                 Power BI Developer • Python Automation • SQL ETL
               </p>
             </motion.div>
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-50 flex flex-col items-center">
+              <motion.div
+                animate={{ y: [0, 15, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+                className="p-4 text-4xl rounded-full bg-indigo-600 text-white shadow-lg hover:bg-indigo-800 cursor-default"
+              >
+                ↓
+              </motion.div>
+              <span className="mt-2 text-white text-sm opacity-70">Scroll down</span>
+            </div>
           </div>
         </section>
       ) : (
