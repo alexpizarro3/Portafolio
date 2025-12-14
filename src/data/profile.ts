@@ -3,17 +3,18 @@ import { Mail, Linkedin, Github } from 'lucide-react';
 
 export const profile = {
   name: "Alexis Pizarro",
-  role: "Senior Supply Chain Reverse Data Analyst · System Engineer · Production Planner",
-  subRole: "PLX Scripts & Dashboards • BigQuery • GoogleSQL • Python Automation",
-  about: `I’m a System Engineer and a Business Intelligence and Data Analytics professional with experience in manufacturing and tech companies serving clients across Central America and the U.S. with more than 5 years of experience in data analysis, business intelligence, production planning, and digital transformation.
+  role: "Senior Supply Chain Reverse Data Analyst · Lead Manufacturing Data Analyst · BI Data Analyst",
+  subRole: "PLX Scripts • BigQuery • GoogleSQL • PostgreSQL • Python • Power BI",
+  about: `I’m a System Engineer and a Senior Data Analyst with extensive experience in the tech, fintech, and manufacturing sectors. I specialize in Supply Chain Reverse Logistics, Business Intelligence, and digital transformation, serving clients across Central America and the U.S.
+  
+Recent Highlights:
+• At Google (Accenture): Driving reverse logistics optimization using PLX Scripts, BigQuery, and Looker.
+• At B2S Fintech: Led BI initiatives using PostgreSQL and Python for financial automation.
+• At Pozuelo (Nutresa): Served as Lead Manufacturing Data Analyst, driving digital transformation and generating over $700K in savings.
 
-I’ve led high-impact projects such as migrating complex Excel-based KPI sheets into Power BI with Python and SQL ETLs, generating over $500K in savings. I also led the digital transformation of plant operations using Google Apps Script, saving an additional $200K.
+I have a proven track record of migrating complex manual systems (Excel) into automated, scalable solutions (Power BI, SQL, Python). My expertise spans end-to-end data engineering: from ETL pipelines to strategic executive dashboards.
 
-Notably, I have 5+ years of experience in production planning and execution, including MPS and simulated MRP models using Python, cost analysis per process order, CAPEX project leadership, energy efficiency initiatives 50K Usd saves, and KPI dashboards for service level and manufacturing performance.
-
-Currently, I am deploying Business Intelligence and developing strategic dashboards, automations, and reporting systems that boost client revenue and decision-making.
-
-My specialties include end-to-end BI solutions using Power BI, Power Query, Python, SQL, advanced Excel, VSCode, RStudio, and Google Apps Script.`,
+My specialties include: PLX, GoogleSQL, BigQuery, PostgreSQL, Power BI, Power Query, Python, and Advanced Excel.`,
   contact: {
     email: "alexpizarro3@gmail.com",
     linkedin: "https://www.linkedin.com/in/alexis-pizarro-abarca-9018826b/",

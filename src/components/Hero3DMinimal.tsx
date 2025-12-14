@@ -5,6 +5,7 @@ import { Canvas } from '@react-three/fiber';
 import { motion } from 'framer-motion';
 import RotatingBackground from './RotatingBackground';
 import VisitCounter from './VisitCounter';
+import { profile } from '@/data/profile';
 
 export default function Hero3DMinimal() {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -30,12 +31,11 @@ export default function Hero3DMinimal() {
       </Canvas>
 
       <div className="absolute z-10 top-1/4 left-[30%] transform -translate-x-[50%] text-center px-6">
-        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Alexis Pizarro</h1>
-        <p className="text-lg md:text-xl text-indigo-100 leading-relaxed">
-          System Engineer · Senior Lead Production Planner <br />
-          Business Intelligence Data Analyst <br />
-          Power BI · Python · SQL ETL
-        </p>
+        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{profile.name}</h1>
+        <div className="text-lg md:text-xl text-indigo-100 leading-relaxed max-w-2xl">
+          <p className="mb-2">{profile.role.replace(/ · /g, ' · ')}</p>
+          <p className="font-light opacity-90">{profile.subRole}</p>
+        </div>
       </div>
 
       {showScrollIcon && (

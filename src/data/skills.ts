@@ -3,14 +3,16 @@
 
 
 export const skills = [
-    { name: 'Power BI', level: 85 },
-    { name: 'Python', level: 70 },
-    { name: 'SQL', level: 80 }, // Boosted for Google Data Analyst
-    { name: 'R', level: 65 }, // Added for Google Data Analyst
-    { name: 'Tableau', level: 60 }, // Added for Google Data Analyst
-    { name: 'Power Automate', level: 60 },
-    { name: 'Excel / Power Query', level: 75 },
-    { name: 'Apps Script', level: 60 },
+    { name: 'Power BI', level: 90 },
+    { name: 'GoogleSQL / BigQuery', level: 85 },
+    { name: 'PLX Scripts', level: 80 },
+    { name: 'PostgreSQL', level: 80 },
+    { name: 'Python', level: 75 },
+    { name: 'Looker', level: 75 },
+    { name: 'Advanced Excel / Power Query', level: 85 },
+    { name: 'R', level: 65 },
+    { name: 'Tableau', level: 60 },
+    { name: 'Power Automate', level: 65 },
 ];
 
 export const certifications = [
