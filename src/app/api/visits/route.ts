@@ -24,8 +24,10 @@ export async function GET() {
     }
     console.warn('⚠️ No REDIS_URL found. Using Mock.');
     throw new Error('No REDIS_URL');
-  } catch (error) {
-    console.error('❌ Redis Error (Falling back):', error);
+  } catch (_error) {
+    console.error('Redis Error (GET):', _error);
+    // Fallback to in-memory
+    console.log('Using in-memory fallback (GET)');
     return NextResponse.json({ count: mockCount });
   }
 }
@@ -40,7 +42,7 @@ export async function POST() {
       return NextResponse.json({ count });
     }
     throw new Error('No REDIS_URL');
-  } catch (error) {
+  } catch (_error) {
     mockCount++;
     return NextResponse.json({ count: mockCount });
   }

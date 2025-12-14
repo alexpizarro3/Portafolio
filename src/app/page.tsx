@@ -50,7 +50,7 @@ export default function Page() {
     const recordVisit = async () => {
       try {
         await fetch('/api/visits', { method: 'POST' });
-      } catch (e) {
+      } catch (_e) {
         console.warn('Failed to record visit, likely missing env vars');
       }
     };
@@ -64,7 +64,7 @@ export default function Page() {
         if (!res.ok) throw new Error('API failed');
         const data = await res.json();
         setVisitCount(data.count);
-      } catch (e) {
+      } catch (_e) {
         console.warn('Failed to fetch visit count');
         setVisitCount(0); // Default or hide
       }
