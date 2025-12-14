@@ -33,11 +33,10 @@ const ProjectCard = React.memo(({ project, isActive, onHover, onClick }: Props) 
       },
       viewport: { once: true, amount: 0.2 },
     })}
-    className={`relative flex flex-col md:flex-row items-center gap-6 cursor-pointer transition-all duration-500 rounded-xl p-4 ${
-      isActive
-        ? 'scale-100 bg-white dark:bg-gray-900 shadow-xl z-20'
-        : 'scale-100 md:scale-75 opacity-100 md:opacity-60 hover:md:scale-80 hover:md:opacity-100 bg-gray-100 dark:bg-gray-800 z-10'
-    }`}
+    className={`relative flex flex-col md:flex-row items-center gap-6 cursor-pointer transition-all duration-500 rounded-xl p-4 ${isActive
+        ? 'scale-100 bg-white/70 dark:bg-gray-900/60 backdrop-blur-md shadow-2xl z-20 border border-white/20 dark:border-gray-700/50'
+        : 'scale-100 md:scale-75 opacity-100 md:opacity-60 hover:md:scale-80 hover:md:opacity-100 bg-gray-100/50 dark:bg-gray-800/30 backdrop-blur-sm z-10 border border-transparent'
+      }`}
   >
     {isActive && (
       <div className="absolute -top-2 right-4 text-indigo-600 dark:text-indigo-400 text-xl animate-bounce">
@@ -58,9 +57,8 @@ const ProjectCard = React.memo(({ project, isActive, onHover, onClick }: Props) 
           height={375}
           loading="lazy"
           placeholder="empty"
-          className={`rounded-xl w-full h-full ${
-            project.id === 6 ? 'object-contain' : 'object-cover'
-          }`}
+          className={`rounded-xl w-full h-full ${project.id === 6 ? 'object-contain' : 'object-cover'
+            }`}
         />
         <div className="absolute top-2 left-2 w-2 h-2 bg-gray-600 rounded-full" />
         <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-gray-600 rounded-full" />
@@ -80,7 +78,7 @@ const ProjectCard = React.memo(({ project, isActive, onHover, onClick }: Props) 
           href={project.link}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 mt-2 text-indigo-600 dark:text-indigo-400 hover:underline font-semibold text-sm"
+          className="inline-flex items-center gap-2 mt-2 text-indigo-600 dark:text-indigo-400 hover:underline font-mono font-semibold text-xs"
         >
           {project.link.includes('colab') ? 'Open in Google Colab →' : 'View Project →'}
         </a>
@@ -90,7 +88,7 @@ const ProjectCard = React.memo(({ project, isActive, onHover, onClick }: Props) 
         {project.technologies.map((tech, idx) => (
           <span
             key={idx}
-            className="flex items-center gap-1 bg-indigo-100 text-indigo-700 dark:bg-indigo-800 dark:text-indigo-200 text-[10px] font-medium px-2 py-1 rounded-full"
+            className="flex items-center gap-1 bg-indigo-100/50 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-200 text-[10px] font-mono font-medium px-2 py-1 rounded-full border border-indigo-200/20"
           >
             {techIcons[tech] || null}
             {tech}

@@ -7,7 +7,11 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",        // mantiene src por si acaso
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        mono: ['var(--font-jetbrains-mono)', 'monospace'],
+      },
+    },
   },
   darkMode: 'selector',
   plugins: [],

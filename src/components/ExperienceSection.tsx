@@ -33,17 +33,17 @@ export default function ExperienceSection() {
                             <Briefcase className="h-3 w-3 text-white" />
                         </span>
 
-                        <div className="p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-shadow duration-300">
+                        <div className="p-6 bg-white/60 dark:bg-gray-800/40 backdrop-blur-md rounded-xl shadow-lg border border-gray-200/50 dark:border-gray-700/50 hover:shadow-xl transition-all duration-300">
                             <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                                 <h3 className="text-xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
                                     {job.role}
                                     {index === 0 && (
-                                        <span className="bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-indigo-900 dark:text-indigo-300">
+                                        <span className="bg-indigo-100 text-indigo-800 text-xs font-mono px-2.5 py-0.5 rounded dark:bg-indigo-900/50 dark:text-indigo-300">
                                             Current
                                         </span>
                                     )}
                                 </h3>
-                                <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 mt-2 md:mt-0">
+                                <div className="flex items-center text-sm font-mono text-gray-500 dark:text-gray-400 mt-2 md:mt-0">
                                     <Calendar className="w-4 h-4 mr-1" />
                                     {job.period}
                                 </div>
@@ -61,7 +61,7 @@ export default function ExperienceSection() {
                                 {job.skills.map((skill, i) => (
                                     <span
                                         key={i}
-                                        className="px-3 py-1 text-xs font-medium rounded-full bg-indigo-50 text-indigo-700 dark:bg-gray-700 dark:text-indigo-300 border border-indigo-100 dark:border-gray-600"
+                                        className="px-3 py-1 text-xs font-mono font-medium rounded-full bg-indigo-50/50 text-indigo-700 dark:bg-gray-700/50 dark:text-indigo-300 border border-indigo-100/50 dark:border-gray-600/50"
                                     >
                                         {skill}
                                     </span>

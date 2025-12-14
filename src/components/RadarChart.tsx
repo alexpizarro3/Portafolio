@@ -1,13 +1,13 @@
 'use client';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
 
-const data = [
-  { subject: 'Power BI', A: 90 },
-  { subject: 'Python', A: 80 },
-  { subject: 'SQL', A: 85 },
-  { subject: 'Excel', A: 95 },
-  { subject: 'ETL', A: 75 }
-];
+import { skills } from '../data/skills';
+
+const data = skills.map(skill => ({
+  subject: skill.name,
+  A: skill.level,
+  fullMark: 100
+}));
 
 export default function RadarSkillsChart() {
   return (

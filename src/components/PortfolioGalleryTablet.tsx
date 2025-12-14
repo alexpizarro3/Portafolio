@@ -64,13 +64,13 @@ export default function PortfolioGalleryTablet() {
               setSelectedSection(section);
               setExpandedSection(null); // reinicia cualquier expansión activa
             }}
-            className={`px-3 py-2 text-sm sm:px-6 sm:py-3 sm:text-md rounded-full font-semibold transition-colors duration-300 shadow-md whitespace-nowrap text-center ${selectedSection === section
-                ? section === 'python'
-                  ? 'bg-green-600 text-white'
-                  : section === 'digital'
-                    ? 'bg-yellow-600 text-white'
-                    : 'bg-indigo-600 text-white'
-                : 'bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200'
+            className={`px-3 py-2 text-sm sm:px-6 sm:py-3 sm:text-md rounded-full font-mono font-semibold transition-all duration-300 shadow-lg whitespace-nowrap text-center backdrop-blur-md border ${selectedSection === section
+              ? section === 'python'
+                ? 'bg-green-600/90 text-white border-green-400/50 shadow-green-900/20'
+                : section === 'digital'
+                  ? 'bg-yellow-600/90 text-white border-yellow-400/50 shadow-yellow-900/20'
+                  : 'bg-indigo-600/90 text-white border-indigo-400/50 shadow-indigo-900/20'
+              : 'bg-white/50 dark:bg-gray-800/50 text-gray-700 dark:text-gray-300 border-gray-200/50 dark:border-gray-700/50 hover:bg-white/80 dark:hover:bg-gray-700/80'
               }`}
           >
             {section === 'all'
