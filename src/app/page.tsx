@@ -1,7 +1,7 @@
 'use client';
 
 
-import { Code2, ScrollText, Eye } from 'lucide-react';
+import { Code2, ScrollText } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';

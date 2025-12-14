@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { Eye } from 'lucide-react';
 import { profile } from '../data/profile';
 
