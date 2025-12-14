@@ -1,20 +1,26 @@
 'use client';
 
-import { Mail, Linkedin, Github, BarChart4, Bot, Factory, Cpu, Code2, ScrollText, Eye } from 'lucide-react';
+
+import { Code2, ScrollText, Eye } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import dynamic from 'next/dynamic';
-//import Hero3D from './components/Hero3D';
-import CVSection from './components/CVSection';
+import { profile } from '../data/profile';
+import { services } from '../data/services';
+// Components
+import Hero3DMinimal from '../components/Hero3DMinimal';
+import CVSection from '../components/CVSection';
+import ExperienceSection from '../components/ExperienceSection';
 import { useIsMobile } from '../hooks/useIsMobile';
-import Hero3DMinimal from './components/Hero3DMinimal';
 
-const PortfolioGalleryTablet = dynamic(() => import('./components/PortfolioGalleryTablet'), { ssr: false });
-const ProductionPlanningSection = dynamic(() => import('./components/ProductionPlanningSection'), { ssr: false });
-const ContactForm = dynamic(() => import('./components/ContactForm'), { ssr: false });
-const FaqAssistant = dynamic(() => import('./components/FaqAssistant'), { ssr: false });
+const PortfolioGalleryTablet = dynamic(() => import('../components/PortfolioGalleryTablet'), { ssr: false });
+const ThemeToggle = dynamic(() => import('../components/ThemeToggle'), { ssr: false });
+const ProductionPlanningSection = dynamic(() => import('../components/ProductionPlanningSection'), { ssr: false });
+const ContactForm = dynamic(() => import('../components/ContactForm'), { ssr: false });
+const FaqAssistant = dynamic(() => import('../components/FaqAssistant'), { ssr: false });
 
-const CertificationsSkillsSection = dynamic(() => import('./components/CertificationsSkillsSection'), {
+const CertificationsSkillsSection = dynamic(() => import('../components/CertificationsSkillsSection'), {
   ssr: false,
   loading: () => <div className="text-center py-10">Loading certifications...</div>
 });
@@ -40,14 +46,28 @@ export default function Page() {
   }, []);
 
   useEffect(() => {
-    fetch('/api/visits', { method: 'POST' });
+    // Optional: Only fetch if we expect it to work or fail silently
+    const recordVisit = async () => {
+      try {
+        await fetch('/api/visits', { method: 'POST' });
+      } catch (e) {
+        console.warn('Failed to record visit, likely missing env vars');
+      }
+    };
+    recordVisit();
   }, []);
 
   useEffect(() => {
     const getCount = async () => {
-      const res = await fetch('/api/visits');
-      const data = await res.json();
-      setVisitCount(data.count);
+      try {
+        const res = await fetch('/api/visits');
+        if (!res.ok) throw new Error('API failed');
+        const data = await res.json();
+        setVisitCount(data.count);
+      } catch (e) {
+        console.warn('Failed to fetch visit count');
+        setVisitCount(0); // Default or hide
+      }
     };
     getCount();
   }, []);
@@ -60,7 +80,7 @@ export default function Page() {
   if (loading) return <Loader />;
 
   return (
-    <main className="pt-20 min-h-screen font-sans tracking-tight bg-gradient-to-b from-indigo-100 via-white to-white dark:from-gray-900 dark:to-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-500">
+    <main className="pt-20 min-h-screen font-sans tracking-tight bg-gradient-to-b from-indigo-50 via-white to-white dark:from-gray-900 dark:to-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-500">
       <motion.nav
         className="fixed top-0 left-0 w-full z-50 bg-white/80 dark:bg-gray-800/90 backdrop-blur border-b py-4 shadow-sm"
         initial={{ y: -60, opacity: 0 }}
@@ -68,25 +88,29 @@ export default function Page() {
         transition={{ duration: 0.6 }}
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 flex justify-between items-center">
-          <h1 className="text-xl sm:text-2xl font-bold flex items-center gap-2"><Code2 className="text-indigo-500" /> Alexis Pizarro</h1>
+          <h1 className="text-xl sm:text-2xl font-bold flex items-center gap-2"><Code2 className="text-indigo-500" /> {profile.name}</h1>
           <ul className="flex gap-4 sm:gap-6 text-sm sm:text-base text-gray-600 dark:text-gray-300 overflow-x-auto whitespace-nowrap max-w-full scrollbar-hide">
             <li><a href="#about" className="hover:text-indigo-500 transition-colors">About</a></li>
-            <li><a href="#about" className="hover:text-indigo-500 transition-colors">Downloads</a></li>
+            <li><a href="#experience" className="hover:text-indigo-500 transition-colors">Experience</a></li>
             <li><a href="#production-planning" className="hover:text-indigo-500 transition-colors">Planning</a></li>
             <li><a href="#certifications" className="hover:text-indigo-500 transition-colors">Certifications</a></li>
             <li><a href="#portfolio" className="hover:text-indigo-500 transition-colors">Portfolio</a></li>
             <li><a href="#contact" className="hover:text-indigo-500 transition-colors">Contact</a></li>
-            <li><a href="#faqs" className="hover:text-indigo-500 transition-colors">Faqs</a></li>
           </ul>
+          <div className="ml-4">
+            <ThemeToggle />
+          </div>
         </div>
       </motion.nav>
 
       {isMobile ? (
         <section className="relative h-[600px] flex items-center justify-center bg-gradient-to-br from-indigo-900 to-black overflow-hidden">
-          <img
+          <Image
             src="/portfolio/movilStatic.webp"
             alt="Static Hero3D Image"
-            className="absolute inset-0 w-full h-full object-cover opacity-90"
+            fill
+            className="object-cover opacity-90"
+            priority
           />
 
           {/* Contenido central */}
@@ -98,12 +122,11 @@ export default function Page() {
               className="w-full max-w-sm sm:max-w-md bg-gradient-to-r from-indigo-900/70 to-purple-800/70 p-4 sm:p-6 rounded-2xl shadow-xl backdrop-blur-md border border-indigo-500/30"
             >
               <h1 className="text-2xl sm:text-3xl font-extrabold text-white leading-snug mb-2 text-center">
-                Alexis Pizarro
+                {profile.name}
               </h1>
               <p className="text-sm sm:text-base text-indigo-100 leading-relaxed text-center">
-                System Engineer · Senior Lead Production Planner <br />
-                Business Intelligence Data Analyst <br />
-                Power BI Developer • Python Automation • SQL ETL
+                {profile.role} <br />
+                {profile.subRole}
               </p>
             </motion.div>
           </div>
@@ -123,7 +146,7 @@ export default function Page() {
       ) : (
         <Hero3DMinimal />
       )
-}
+      }
 
       <motion.section
         id="about"
@@ -135,73 +158,41 @@ export default function Page() {
       >
         <ScrollText className="mx-auto text-indigo-500 w-10 h-10 mb-4" />
         <h2 className="text-3xl font-bold mb-6">About Me</h2>
-        <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-          I’m a System Engineer and a Business Intelligence and Data Analytics professional with experience in manufacturing and tech companies serving clients across Central America and the U.S. with more than 5 years of experience in data analysis, business intelligence, production planning, and digital transformation.
-          <br /><br />
-          I’ve led high-impact projects such as migrating complex Excel-based KPI sheets into Power BI with Python and SQL ETLs, generating over $500K in savings. I also led the digital transformation of plant operations using Google Apps Script, saving an additional $200K.
-          <br /><br />
-          Notably, I have 5+ years of experience in production planning and execution, including MPS and simulated MRP models using Python, cost analysis per process order, CAPEX project leadership, energy efficiency initiatives 50K Usd saves, and KPI dashboards for service level and manufacturing performance.
-          <br /><br />
-          Currently, I am deploying Business Intelligence and developing strategic dashboards, automations, and reporting systems that boost client revenue and decision-making.
-          <br /><br />
-          My specialties include end-to-end BI solutions using Power BI, Power Query, Python, SQL, advanced Excel, VSCode, RStudio, and Google Apps Script.
+        <p className="text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+          {profile.about}
         </p>
       </motion.section>
 
       <CVSection />
 
+      <ExperienceSection />
+
       <motion.section
-        id="projects"
+        id="services"
         className="py-20 px-6 max-w-6xl mx-auto text-center"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
       >
-        <h2 className="text-3xl font-bold mb-10">Featured Projects</h2>
+        <h2 className="text-3xl font-bold mb-10">Featured Highlights</h2>
         <div className="grid md:grid-cols-4 gap-8">
-          <div>
-            <BarChart4 className="mx-auto text-indigo-600 w-8 h-8 mb-4" />
-            <h3 className="text-xl font-semibold mb-2">Data Analysis</h3>
-            <ul className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed list-disc list-inside">
-              <li>Saved $100K annually with Excel + SQL KPIs.</li>
-              <li>Reduced costs by $400K through Power BI migration.</li>
-              <li>Automated refresh via Power BI Service.</li>
-            </ul>
-          </div>
-          <div>
-            <Bot className="mx-auto text-green-500 w-8 h-8 mb-4" />
-            <h3 className="text-xl font-semibold mb-2">Automations</h3>
-            <ul className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed list-disc list-inside">
-              <li>20+ Python RPAs for SAP data extraction, SQL interaction, and Google Drive sync.</li>
-              <li>24/7 integration via Windows Task Scheduler.</li>
-              <li>Automated alerts via email and WhatsApp.</li>
-              <li>Monitoring via Power Automate flows.</li>
-            </ul>
-          </div>
-          <div>
-            <Cpu className="mx-auto text-purple-500 w-8 h-8 mb-4" />
-            <h3 className="text-xl font-semibold mb-2">Digital Transformation</h3>
-            <ul className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed list-disc list-inside">
-              <li>Real-time web apps using Google Apps Script.</li>
-              <li>Digitization of critical plant processes.</li>
-              <li>Real-time KPIs via MES systems (↑ 2% OEE).</li>
-            </ul>
-          </div>
-          <div>
-            <Factory className="mx-auto text-yellow-500 w-8 h-8 mb-4" />
-            <h3 className="text-xl font-semibold mb-2">Planning & Execution</h3>
-            <ul className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed list-disc list-inside">
-              <li>MRP simulations with Python + Excel.</li>
-              <li>Production plan compliance and KPI dashboards.</li>
-              <li>CAPEX project leadership for plant upgrades.</li>
-              <li>150K USD savings.</li>
-              <li>Cost analysis per process order.</li>
-            </ul>
-          </div>
+          {services.map((service, index) => {
+            const Icon = service.icon;
+            return (
+              <div key={index} className="p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                <Icon className={`mx-auto w-10 h-10 mb-4 ${service.color}`} />
+                <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
+                <ul className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed list-disc list-inside text-left">
+                  {service.description.map((item, i) => (
+                    <li key={i}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            );
+          })}
         </div>
       </motion.section>
-
 
       <CertificationsSkillsSection />
       <ProductionPlanningSection />
@@ -219,24 +210,17 @@ export default function Page() {
         <ContactForm />
         <br />
         <div className="flex flex-col items-center gap-4 text-gray-800 dark:text-gray-200">
-          <div className="flex items-center gap-2">
-            <Mail className="text-pink-600" />
-            <a href="mailto:alexpizarro3@gmail.com" target="_blank" rel="noopener noreferrer" className="hover:underline">
-              alexpizarro3@gmail.com
-            </a>
-          </div>
-          <div className="flex items-center gap-2">
-            <Linkedin className="text-blue-600" />
-            <a href="https://www.linkedin.com/in/alexis-pizarro-abarca-9018826b/" target="_blank" rel="noopener noreferrer" className="hover:underline">
-              linkedin.com/in/alexpizarro3
-            </a>
-          </div>
-          <div className="flex items-center gap-2">
-            <Github className="text-black dark:text-white" />
-            <a href="https://github.com/alexpizarro3" target="_blank" rel="noopener noreferrer" className="hover:underline">
-              github.com/alexpizarro3
-            </a>
-          </div>
+          {profile.socials.map((social, index) => {
+            const Icon = social.icon;
+            return (
+              <div key={index} className="flex items-center gap-2">
+                <Icon className={social.color} />
+                <a href={social.href} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                  {social.name === "Email" ? profile.contact.email : social.href.replace('https://', '')}
+                </a>
+              </div>
+            );
+          })}
         </div>
       </motion.section>
 
@@ -256,7 +240,7 @@ export default function Page() {
           <>Loading visits...</>
         )}
       </div>
-      
+
       {showScrollTop && (
         <motion.button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}

@@ -6,26 +6,19 @@ import CertCard from './CertCard';
 import SkillBar from './SkillBar';
 import RadarChart from './RadarChart';
 
-const certifications = [
-  { title: 'PL-300 Microsoft', date: 'June 2025', icon: <BarChart4 className="w-6 h-6" /> },
-  { title: 'Data Analyst with Power BI – DataCamp', date: 'May 2025', icon: <BarChart4 className="w-6 h-6" />, link: 'https://www.datacamp.com/completed/statement-of-accomplishment/track/0a56adace0b94be8f3845a1195fda8cbb69566b4' },
-  { title: 'Python for Data Analysis – DataCamp', date: 'Late 2025', icon: <Code2 className="w-6 h-6" /> },
-  { title: 'Data Visualization with Power BI – Great Learning', date: '2023', icon: <Cpu className="w-6 h-6" />, link: 'https://www.mygreatlearning.com/certificate/PVDQICBW' },
-  { title: 'Excel Analytics – Great Learning', date: '2023', icon: <Cpu className="w-6 h-6" />, link: 'https://www.mygreatlearning.com/certificate/OATINFET' },
-  { title: 'Azure Fundamentals – Great Learning', date: '2023', icon: <Cpu className="w-6 h-6" />, link: 'https://www.mygreatlearning.com/certificate/AVSUSFFM' },
-  { title: 'Power BI – Grow Up Academy', date: '2019', icon: <Bot className="w-6 h-6" />, link: 'https://drive.google.com/file/d/1klqmpwbXokHu5weeWDH47CFwULqYoXpz/view?usp=sharing' },
-  { title: 'EF SET English B2-C1', date: '2023', icon: <ScrollText className="w-6 h-6" />, link: 'https://cert.efset.org/7VCg9k' },
-  { title: 'Conversational English INA CS', date: '2014', icon: <ScrollText className="w-6 h-6" />, link: 'https://drive.google.com/file/d/18QNfnCv4Se03NyOD8zCxnlnLzdXRjIPg/view?usp=sharing' }
-];
 
-const skills = [
-  { name: 'Power BI', level: 85 },
-  { name: 'Python', level: 70 },
-  { name: 'SQL', level: 70 },
-  { name: 'Power Automate', level: 60 },
-  { name: 'Excel / Power Query', level: 75 },
-  { name: 'Apps Script', level: 60 },
-];
+import { certifications, skills } from '../data/skills';
+
+// Helper to render icons dynamically if needed, or pass the component in data (if we changed data file to be .tsx to import icons directly, which is easier)
+// The current data file uses string names for icons. We need a map.
+
+const iconMap: { [key: string]: React.ReactNode } = {
+  BarChart4: <BarChart4 className="w-6 h-6" />,
+  Code2: <Code2 className="w-6 h-6" />,
+  Cpu: <Cpu className="w-6 h-6" />,
+  Bot: <Bot className="w-6 h-6" />,
+  ScrollText: <ScrollText className="w-6 h-6" />
+};
 
 export default function CertificationsSkillsSection() {
   return (
@@ -46,7 +39,10 @@ export default function CertificationsSkillsSection() {
             whileHover={{ scale: 1.05 }}
             transition={{ type: 'spring', stiffness: 300 }}
           >
-            <CertCard {...cert} />
+            <CertCard
+              {...cert}
+              icon={iconMap[cert.icon] || <ScrollText className="w-6 h-6" />}
+            />
           </motion.div>
         ))}
       </div>
