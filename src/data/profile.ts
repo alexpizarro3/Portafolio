@@ -3,8 +3,8 @@ import { Mail, Linkedin, Github } from 'lucide-react';
 
 export const profile = {
   name: "Alexis Pizarro",
-  role: "System Engineer · Senior Lead Production Planner · Business Intelligence Data Analyst",
-  subRole: "Power BI Developer • Python Automation • SQL ETL",
+  role: "Senior Supply Chain Reverse Data Analyst · System Engineer · Production Planner",
+  subRole: "PLX Scripts & Dashboards • BigQuery • GoogleSQL • Python Automation",
   about: `I’m a System Engineer and a Business Intelligence and Data Analytics professional with experience in manufacturing and tech companies serving clients across Central America and the U.S. with more than 5 years of experience in data analysis, business intelligence, production planning, and digital transformation.
 
 I’ve led high-impact projects such as migrating complex Excel-based KPI sheets into Power BI with Python and SQL ETLs, generating over $500K in savings. I also led the digital transformation of plant operations using Google Apps Script, saving an additional $200K.
