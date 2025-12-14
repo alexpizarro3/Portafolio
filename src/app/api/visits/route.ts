@@ -42,7 +42,7 @@ export async function POST() {
       return NextResponse.json({ count });
     }
     throw new Error('No REDIS_URL');
-  } catch (_error) {
+  } catch {
     mockCount++;
     return NextResponse.json({ count: mockCount });
   }
