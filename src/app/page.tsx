@@ -9,7 +9,8 @@ import dynamic from 'next/dynamic';
 import { profile } from '../data/profile';
 import { services } from '../data/services';
 // Components
-import Hero3DMinimal from '../components/Hero3DMinimal';
+import Hero3DMinimal from '@/components/Hero3DMinimal';
+import Footer from '@/components/Footer';
 import CVSection from '../components/CVSection';
 import ExperienceSection from '../components/ExperienceSection';
 import { useIsMobile } from '../hooks/useIsMobile';
@@ -225,21 +226,7 @@ export default function Page() {
       </motion.section>
 
       <FaqAssistant />
-      <div className="text-center text-sm text-gray-500 dark:text-gray-400 py-6">
-        {visitCount !== null ? (
-          <motion.div
-            className="inline-flex items-center gap-2 justify-center"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <Eye className="w-5 h-5 text-indigo-500 animate-pulse" />
-            <span className="font-semibold">{visitCount}</span> visits so far.
-          </motion.div>
-        ) : (
-          <>Loading visits...</>
-        )}
-      </div>
+      <Footer visitCount={visitCount} />
 
       {showScrollTop && (
         <motion.button
