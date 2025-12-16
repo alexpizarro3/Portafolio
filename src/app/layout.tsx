@@ -16,6 +16,8 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
 });
 
+import NoiseOverlay from "@/components/ui/NoiseOverlay";
+
 export const metadata = {
   title: 'Alexis Pizarro – Data Analytics & BI Portfolio',
   description: 'Explore the interactive portfolio of Alexis Pizarro, Business Intelligence Analyst and Power BI Developer. Showcasing automated Python workflows, advanced SQL dashboards, and real-world data solutions.'
@@ -28,7 +30,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} ${jetbrainsMono.variable} antialiased overflow-x-hidden max-w-[100vw]`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${jetbrainsMono.variable} antialiased overflow-x-hidden max-w-[100vw] bg-space-black text-white`}>
+        <NoiseOverlay />
         {children}
       </body>
     </html>

@@ -2,12 +2,12 @@
 
 import { motion } from 'framer-motion';
 import { BarChart4, Bot, Cpu, Code2, ScrollText } from 'lucide-react';
-import CertCard from './CertCard';
-import SkillBar from './SkillBar';
-import RadarChart from './RadarChart';
+import CertCard from '@/components/ui/CertCard';
+import SkillBar from '@/components/ui/SkillBar';
+import RadarChart from '@/components/ui/RadarChart';
 
 
-import { certifications, skills } from '../data/skills';
+import { certifications, skills } from '@/data/skills';
 
 // Helper to render icons dynamically if needed, or pass the component in data (if we changed data file to be .tsx to import icons directly, which is easier)
 // The current data file uses string names for icons. We need a map.

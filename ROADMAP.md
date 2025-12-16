@@ -1,51 +1,41 @@
+# 🚀 Portfolio V9: The "Data Experience" Roadmap
 
-# 🧠 Portafolio V9 - Roadmap de Mejoras
+This roadmap outlines the transformation of the portfolio into a world-class Data Analyst showcase, moving from a static site to a dynamic, high-performance application.
 
-## 🚀 Mejoras de Rendimiento
+## Phase 1: Visual Renaissance ("Tech-Glass") 🎨
+**Goal:** Create a stunning, premium "first impression" that sells the "Engineer/Analyst" persona immediately.
 
-- [x] Usar `next/image` con dimensiones fijas y formato `.webp` para evitar layout shift.
-- [ ] Carga diferida (`next/dynamic`) de componentes pesados (`Hero3D`, `PortfolioGalleryTablet`, `RadarChart`).
-- [ ] Memoización con `React.memo`, `useMemo`, `useCallback` en proyectos, skills y techIcons.
-- [ ] Revisión de geometría en `GalaxyNebulaShader` y `Nebula` (Three.js) para menor carga GPU.
-- [ ] Usar `whileInView` en lugar de `initial/animate` en secciones largas.
+- **Typography & Theme**
+    - [ ] Implement **Geist Mono** or **JetBrains Mono** for a code-editor aesthetic.
+    - [ ] Define a "Deep Space" color palette with neon accents (Cyan/Violet).
+- **The "Tech-Glass" Aesthetic**
+    - [ ] Create a reusable **Glassmorphism System** (frosted cards, subtle borders, noise textures).
+    - [ ] Implement "Reactive" cards that glow/distort on hover.
+- **Component Polish**
+    - [ ] **Hero**: Clean up the overlay, ensure 3D elements don't clash with text.
+    - [ ] **Stats**: Replace static bars with **Animated Counters** (e.g., "5+ Years" counting up).
+    - [ ] **Projects**: Redesign project cards to look like "Data Files" or "Mission Logs".
 
----
+## Phase 2: Architectural Foundation 🏗️
+**Goal:** Professionalize the codebase, separating logic from UI and enabling easy content updates.
 
-## 🧩 Refactor: Separación de Componentes
+- **Component Refactor**
+    - [ ] **Atomic Design**: Split `components` into `ui/` (dumb) and `features/` (smart).
+    - [ ] **Performance**: Implement `next/dynamic` for heavy 3D/Chart components.
+- **Content Engine**
+    - [ ] Integrate **MDX** or **Sanity.io** to manage projects and case studies.
+    - [ ] Migrate static `data/*.ts` files to the new content engine.
+    - [ ] Create a proper "Case Study" template layout.
 
-- [ ] `PortfolioGalleryTablet` ➤ Extraer `ProjectCard.tsx` (hover + expansión).
-- [ ] `Hero3D` ➤ Separar `GalaxyNebulaShader.tsx`, `Nebula.tsx`, `FogLayer.tsx`, `RotatingBackground.tsx`.
-- [ ] `CertificationsSkillsSection` ➤ Dividir en `CertCard.tsx`, `SkillBar.tsx`, `RadarChart.tsx`.
-- [ ] `ContactForm` ➤ Extraer `FormInput.tsx` con íconos.
-- [ ] Crear hook `useDarkMode.ts` para `DarkModeToggle`.
+## Phase 3: The "Wow" Factor (Motion & Experience) ✨
+**Goal:** Make the application feel "alive" and fluid.
 
----
-
-## 🎨 Mejoras Visuales y de UX
-
-- [ ] Efecto hover animado en ícono "AP" (rebote, pulsación o resplandor).
-- [ ] Switch visual entre grid y carrusel en proyectos (mobile vs desktop).
-- [ ] Fondo de espacio más profundo con estrellas fijas (`Hero3D` y fondo general).
-- [ ] Scroll suave con `react-scroll` para la navegación.
-- [ ] Accesibilidad: usar `aria-label`, `alt` y soporte para tab navigation.
-
----
-
-## 📈 Extras Sugeridos (Opcional)
-
-- [ ] Sección `Tech Stack` 3D animada con logos orbitando.
-- [ ] Contador de visitas básico (GA4 o Supabase).
-- [ ] Soporte multilenguaje (ES / EN) con `next-i18next`.
-
----
-
-Sección	Sugerencia	Nivel
-Hero3D	Darle un pequeño parallax o scroll reveal al texto	🟢 Bajo esfuerzo, alto impacto
-Navegación	Scroll suave (react-scroll) a secciones	🟢 Mejora UX móvil
-Portfolio	Agregar etiquetas temáticas (ETL, RPA, Visualización) en los proyectos	🟡 Opcional visual
-GitHub	Botón “⭐ Ver código en GitHub” en algún lugar fijo	🟡 Buen refuerzo para empleadores
-SEO	Revisar title, description, og:image para mejorar cómo se ve al compartir	🟡 Detalle técnico útil
-Accesibilidad	Agregar alt más descriptivos en proyectos y aria-labels en íconos	🔵 Bonus para puntuación Lighthouse
-
-
-> ✨ Este roadmap guía la evolución del portafolio V9 con enfoque en performance, escalabilidad y experiencia visual profesional.
+- **Fluid Navigation**
+    - [ ] Implement **Lenis** for luxury smooth scrolling.
+    - [ ] Add **Framer Motion** layout transitions between pages.
+- **Data Storytelling**
+    - [ ] **Interactive Viz**: Replace generic charts with **Visx** or **Nivo** interactive dashboards.
+    - [ ] **Scrollytelling**: Animate elements based on scroll position in the Hero/About sections.
+- **Extras**
+    - [ ] Command Palette (`Ctrl+K`) for power-user navigation.
+    - [ ] Sound Design (subtle hover/click SFX - optional).
