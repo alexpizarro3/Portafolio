@@ -11,11 +11,31 @@ export default function Hero3DMinimal() {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [showScrollIcon, setShowScrollIcon] = useState(true);
 
+  // Typewriter variants
+  const sentence = {
+    hidden: { opacity: 1 },
+    visible: {
+      opacity: 1,
+      transition: {
+        delay: 0.5,
+        staggerChildren: 0.08,
+      },
+    },
+  };
+
+  const letter = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+    },
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       const scrolled = window.scrollY;
       setShowScrollTop(scrolled > window.innerHeight / 2);
-      setShowScrollIcon(scrolled < window.innerHeight - 50); // Más sensible para móviles
+      setShowScrollIcon(scrolled < window.innerHeight - 50);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -43,33 +63,62 @@ export default function Hero3DMinimal() {
           <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-neon-cyan" />
           <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-neon-cyan" />
 
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight text-glow">
-            {profile.name}
-          </h1>
+          <motion.h1
+            className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight text-glow"
+            variants={sentence}
+            initial="hidden"
+            animate="visible"
+          >
+            {profile.name.split("").map((char, index) => (
+              <motion.span key={char + "-" + index} variants={letter}>
+                {char}
+              </motion.span>
+            ))}
+          </motion.h1>
 
           <div className="flex items-center justify-center gap-4 mb-6">
             <div className="h-[1px] w-12 bg-neon-cyan/50" />
             <p className="text-xl md:text-2xl text-neon-cyan font-mono tracking-widest uppercase">
-              {profile.role.replace(/ · /g, ' // ')}
+              <motion.span
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.5, duration: 1 }}
+              >
+                {profile.role.replace(/ · /g, ' // ')}
+              </motion.span>
             </p>
             <div className="h-[1px] w-12 bg-neon-cyan/50" />
           </div>
 
-          <p className="text-gray-300 font-light max-w-2xl mx-auto leading-relaxed text-lg">
+          <motion.p
+            className="text-gray-300 font-light max-w-2xl mx-auto leading-relaxed text-lg"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 2, duration: 1 }}
+          >
             {profile.subRole}
-          </p>
+          </motion.p>
         </motion.div>
       </div>
 
       {showScrollIcon && (
         <motion.div
-          className="fixed bottom-8 left-1/2 -translate-x-1/2 z-40 text-neon-cyan cursor-pointer"
-          animate={{ y: [0, 10, 0], opacity: [0.5, 1, 0.5] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          aria-hidden="true"
+          className="fixed bottom-8 left-1/2 -translate-x-1/2 z-40 text-neon-cyan cursor-pointer flex flex-col items-center gap-2"
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
         >
-          <span className="text-sm font-mono tracking-widest block mb-2 text-center text-[10px] uppercase">Scroll to Init</span>
-          <div className="w-[1px] h-12 bg-gradient-to-b from-transparent via-neon-cyan to-transparent mx-auto" />
+          <span className="text-xs font-mono tracking-[0.2em] uppercase text-neon-cyan/80">Initialize</span>
+          <div className="w-6 h-10 border-2 border-neon-cyan/50 rounded-full flex justify-center p-1 backdrop-blur-sm">
+            <motion.div
+              className="w-1 h-3 bg-neon-cyan rounded-full"
+              animate={{ y: [0, 12, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+            />
+          </div>
+          <svg className="w-6 h-6 text-neon-cyan/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
         </motion.div>
       )}
 

@@ -52,11 +52,11 @@ export default function ProductionPlanningSection() {
         transition={{ duration: 0.8 }}
       >
         <div className="text-center mb-12">
-          <Factory className="w-10 h-10 mx-auto text-indigo-500 mb-4" />
-          <h2 className="text-3xl font-bold text-gray-800 dark:text-white">
+          <Factory className="w-12 h-12 mx-auto text-neon-violet mb-6 drop-shadow-[0_0_8px_rgba(157,78,221,0.5)]" />
+          <h2 className="text-3xl font-bold text-white text-glow">
             Production Planning & Execution
           </h2>
-          <p className="mt-2 text-gray-600 dark:text-gray-300 text-lg max-w-2xl mx-auto">
+          <p className="mt-4 text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed">
             Real-world projects in inventory control, scheduling, MRP simulations, and manufacturing KPIs.
           </p>
         </div>
@@ -65,21 +65,21 @@ export default function ProductionPlanningSection() {
           {productionProjects.map((project, idx) => (
             <motion.div
               key={idx}
-              whileHover={{ scale: 1.03 }}
-              transition={{ duration: 0.4 }}
-              className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-200 dark:border-gray-700"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.3 }}
+              className="glass-card rounded-xl p-8 group hover:shadow-[0_0_20px_rgba(0,243,255,0.15)] hover:border-neon-cyan/50"
             >
-              <h3 className="text-xl font-semibold text-indigo-700 dark:text-indigo-300 mb-2">
+              <h3 className="text-xl font-bold text-white mb-3 group-hover:text-neon-cyan transition-colors font-mono">
                 {project.title}
               </h3>
-              <p className="text-gray-700 dark:text-gray-300 mb-4">
+              <p className="text-gray-400 mb-6 text-sm leading-relaxed">
                 {project.description}
               </p>
               <div className="flex flex-wrap gap-2">
                 {project.tags.map((tag, tagIdx) => (
                   <span
                     key={tagIdx}
-                    className="bg-indigo-100 text-indigo-700 dark:bg-indigo-900 dark:text-indigo-200 px-3 py-1 rounded-full text-sm"
+                    className="px-3 py-1 text-[10px] font-mono text-neon-cyan bg-neon-cyan/5 border border-neon-cyan/20 rounded-sm"
                   >
                     {tag}
                   </span>

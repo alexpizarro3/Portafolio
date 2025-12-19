@@ -57,7 +57,7 @@ const TechCard = React.memo(({ project, isActive, onHover, onClick }: Props) => 
                     <div className="h-[1px] flex-grow bg-white/10" />
                 </div>
 
-                <h3 className="text-2xl font-bold mb-3 text-white font-mono group-hover:text-glow transition-all">
+                <h3 className="text-lg md:text-xl font-bold mb-3 text-white font-mono break-words group-hover:text-glow transition-all leading-tight">
                     {project.title}
                 </h3>
 

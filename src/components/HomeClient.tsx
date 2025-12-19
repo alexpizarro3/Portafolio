@@ -28,13 +28,7 @@ const CertificationsSkillsSection = dynamic(() => import('@/components/sections/
     loading: () => <div className="text-center py-10">Loading certifications...</div>
 });
 
-function Loader() {
-    return (
-        <div className="fixed inset-0 bg-space-black z-50 flex items-center justify-center">
-            <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-neon-cyan"></div>
-        </div>
-    );
-}
+import CyberLoader from '@/components/ui/CyberLoader';
 
 interface HomeClientProps {
     projects: Project[];
@@ -78,11 +72,11 @@ export default function HomeClient({ projects }: HomeClientProps) {
     }, []);
 
     useEffect(() => {
-        const timeout = setTimeout(() => setLoading(false), 1500);
+        const timeout = setTimeout(() => setLoading(false), 2000); // Increased slightly to show off loader
         return () => clearTimeout(timeout);
     }, []);
 
-    if (loading) return <Loader />;
+    if (loading) return <CyberLoader />;
 
     return (
         <main className="min-h-screen bg-space-black text-white relative">

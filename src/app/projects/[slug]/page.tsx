@@ -15,8 +15,9 @@ export async function generateStaticParams() {
     }));
 }
 
-export default async function ProjectPage({ params }: { params: { slug: string } }) {
-    const { meta, content } = await getProjectBySlug(params.slug);
+export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
+    const { slug } = await params;
+    const { meta, content } = await getProjectBySlug(slug);
 
     const components = {
         TechCard,
