@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -11,30 +13,36 @@
   --color-space-light: #0f0a29;
   --color-neon-cyan: #00f3ff;
   --color-neon-violet: #9d4edd;
-  --color-glass-border: rgba(255, 255, 255, 0.1);
+  --color-glass-border: var(--glass-border);
 }
 
 :root {
-  --background: #ffffff;
-  --foreground: #030014;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #030014;
-    --foreground: #ededed;
-  }
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --glass-panel-bg: rgba(255, 255, 255, 0.88);
+  --glass-card-bg: rgba(255, 255, 255, 0.82);
+  --glass-card-hover: rgba(255, 255, 255, 0.98);
+  --glass-border: rgba(15, 23, 42, 0.12);
+  --glass-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  --grid-color: rgba(99, 102, 241, 0.25);
 }
 
 .dark {
   --background: #030014;
   --foreground: #ededed;
+  --glass-panel-bg: rgba(3, 0, 20, 0.75);
+  --glass-card-bg: rgba(15, 10, 41, 0.6);
+  --glass-card-hover: rgba(15, 10, 41, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  --grid-color: rgba(0, 243, 255, 0.3);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 html,
@@ -45,28 +53,67 @@ body {
 
 /* Tech-Glass Utilities */
 .glass-panel {
-  background: rgba(3, 0, 20, 0.7);
+  background: var(--glass-panel-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--color-glass-border);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .glass-card {
-  background: rgba(15, 10, 41, 0.6);
+  background: var(--glass-card-bg);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border: 1px solid var(--color-glass-border);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .glass-card:hover {
-  background: rgba(15, 10, 41, 0.8);
-  border-color: var(--color-neon-cyan);
-  box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
+  background: var(--glass-card-hover);
+  border-color: #00f3ff;
+  box-shadow: 0 0 15px rgba(0, 243, 255, 0.25);
   transform: translateY(-2px);
 }
 
 .text-glow {
   text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+}
+
+/* Light Mode Overrides for Hardcoded Dark Classes */
+html:not(.dark) {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+html:not(.dark) .text-white {
+  color: #0f172a !important;
+}
+
+html:not(.dark) .text-gray-300 {
+  color: #334155 !important;
+}
+
+html:not(.dark) .text-gray-400 {
+  color: #475569 !important;
+}
+
+html:not(.dark) .bg-white\/5 {
+  background-color: rgba(15, 23, 42, 0.05) !important;
+}
+
+html:not(.dark) .border-white\/10 {
+  border-color: rgba(15, 23, 42, 0.12) !important;
+}
+
+html:not(.dark) .bg-space-black {
+  background-color: #f8fafc !important;
+}
+
+html:not(.dark) .text-glow {
+  text-shadow: 0 0 12px rgba(124, 58, 237, 0.25);
 }

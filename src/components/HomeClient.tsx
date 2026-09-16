@@ -79,7 +79,7 @@ export default function HomeClient({ projects }: HomeClientProps) {
     if (loading) return <CyberLoader />;
 
     return (
-        <main className="min-h-screen bg-space-black text-white relative">
+        <main className="min-h-screen bg-background text-foreground relative transition-colors duration-300">
             <CyberGrid />
             <Navbar />
 

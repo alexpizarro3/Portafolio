@@ -43,7 +43,7 @@ export default function Hero3DMinimal() {
   }, []);
 
   return (
-    <section className="relative h-screen w-full overflow-hidden bg-black">
+    <section className="relative h-screen w-full overflow-hidden bg-transparent dark:bg-black transition-colors duration-300">
       <VisitCounter />
       <Canvas className="absolute inset-0 z-0" camera={{ position: [0, 0, 6] }}>
         <ambientLight intensity={0.4} />
