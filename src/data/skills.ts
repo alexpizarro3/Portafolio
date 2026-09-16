@@ -3,16 +3,16 @@
 
 
 export const skills = [
-    { name: 'Power BI (DAX / Modeling)', level: 95 },
-    { name: 'GoogleSQL & BigQuery', level: 90 },
-    { name: 'PLX Scripts & Dashboards', level: 88 },
-    { name: 'Python (RPA & Analytics)', level: 85 },
-    { name: 'Looker & BI Visualization', level: 85 },
-    { name: 'SQL (PostgreSQL / SQL Server)', level: 85 },
-    { name: 'Generative AI (Gemini / LLMs)', level: 85 },
-    { name: 'Advanced Excel & Power Query', level: 90 },
-    { name: 'Agile Leadership (Scrum Master)', level: 85 },
-    { name: 'Power Automate & Apps Script', level: 80 }
+    { name: 'Power BI (DAX / Modeling)', level: 80 },
+    { name: 'GoogleSQL & BigQuery', level: 75 },
+    { name: 'PLX Scripts & Dashboards', level: 73 },
+    { name: 'Python (RPA & Analytics)', level: 70 },
+    { name: 'Looker & BI Visualization', level: 70 },
+    { name: 'SQL (PostgreSQL / SQL Server)', level: 70 },
+    { name: 'Generative AI (Gemini / LLMs)', level: 70 },
+    { name: 'Advanced Excel & Power Query', level: 75 },
+    { name: 'Agile Leadership (Scrum Master)', level: 70 },
+    { name: 'Power Automate & Apps Script', level: 65 }
 ];
 
 export const skillCategories = [
@@ -67,18 +67,6 @@ export const certifications = [
         icon: 'ScrollText',
         link: 'https://cert.efset.org/7VCg9k',
         institution: 'EF Standard English Test'
-    },
-    {
-        title: 'PL-300: Microsoft Power BI Data Analyst',
-        date: '2025',
-        icon: 'BarChart4',
-        institution: 'Microsoft'
-    },
-    {
-        title: 'Python for Data Analysis',
-        date: '2025',
-        icon: 'Code2',
-        institution: 'DataCamp'
     },
     {
         title: 'Data Visualization with Power BI',

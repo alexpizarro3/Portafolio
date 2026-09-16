@@ -57,7 +57,6 @@ Experienced Information Systems Engineer and Data Integration Specialist with a 
 - **Google Data Analytics Professional Certificate** (2024)
 - **Data Analyst with Power BI** – DataCamp (2025)
 - **EF SET English Certificate (B2-C1)** (2023 - 2025)
-- **PL-300: Microsoft Power BI Data Analyst** (2025)
 
 ---
 

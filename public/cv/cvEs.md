@@ -57,7 +57,6 @@ Ingeniero en Sistemas de Información y Especialista en Integración de Datos co
 - **Certificado Profesional Google Data Analytics** (2024)
 - **Data Analyst with Power BI** – DataCamp (2025)
 - **Certificado de Inglés EF SET (B2-C1)** (2023 - 2025)
-- **PL-300: Microsoft Power BI Data Analyst** (2025)
 
 ---
 

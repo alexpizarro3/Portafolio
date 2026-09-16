@@ -35,7 +35,7 @@ export async function POST(req: Request) {
     },
     {
       keywords: ['certifications', 'certificates', 'certificaciones'],
-      answer: 'Key certifications include Google Cloud Platform Analytics (2025), Google Data Analytics Professional (2024), Data Analyst with Power BI (DataCamp 2025), EF SET English Certificate (B2-C1), and PL-300.',
+      answer: 'Key certifications include Google Cloud Platform Analytics (2025), Google Data Analytics Professional (2024), Data Analyst with Power BI (DataCamp 2025), and EF SET English Certificate (B2-C1).',
     },
     {
       keywords: ['purpose', 'goal', 'mission'],
