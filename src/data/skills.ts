@@ -3,16 +3,16 @@
 
 
 export const skills = [
-    { name: 'Power BI (DAX / Modeling)', level: 80 },
-    { name: 'GoogleSQL & BigQuery', level: 75 },
-    { name: 'PLX Scripts & Dashboards', level: 73 },
-    { name: 'Python (RPA & Analytics)', level: 70 },
-    { name: 'Looker & BI Visualization', level: 70 },
-    { name: 'SQL (PostgreSQL / SQL Server)', level: 70 },
-    { name: 'Generative AI (Gemini / LLMs)', level: 70 },
-    { name: 'Advanced Excel & Power Query', level: 75 },
-    { name: 'Agile Leadership (Scrum Master)', level: 70 },
-    { name: 'Power Automate & Apps Script', level: 65 }
+    { name: 'Power BI (DAX / Modeling)', level: 65 },
+    { name: 'GoogleSQL & BigQuery', level: 60 },
+    { name: 'PLX Scripts & Dashboards', level: 58 },
+    { name: 'Python (RPA & Analytics)', level: 55 },
+    { name: 'Looker & BI Visualization', level: 55 },
+    { name: 'SQL (PostgreSQL / SQL Server)', level: 55 },
+    { name: 'Generative AI (Gemini / LLMs)', level: 55 },
+    { name: 'Advanced Excel & Power Query', level: 60 },
+    { name: 'Agile Leadership (Scrum Master)', level: 55 },
+    { name: 'Power Automate & Apps Script', level: 50 }
 ];
 
 export const skillCategories = [
