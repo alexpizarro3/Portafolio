@@ -1,23 +1,21 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { BarChart4, Bot, Cpu, Code2, ScrollText } from 'lucide-react';
+import { BarChart4, Bot, Cpu, Code2, ScrollText, GraduationCap, Cloud } from 'lucide-react';
 import CertCard from '@/components/ui/CertCard';
 import SkillBar from '@/components/ui/SkillBar';
 import RadarChart from '@/components/ui/RadarChart';
 
-
-import { certifications, skills } from '@/data/skills';
-
-// Helper to render icons dynamically if needed, or pass the component in data (if we changed data file to be .tsx to import icons directly, which is easier)
-// The current data file uses string names for icons. We need a map.
+import { certifications, skills, skillCategories } from '@/data/skills';
 
 const iconMap: { [key: string]: React.ReactNode } = {
   BarChart4: <BarChart4 className="w-6 h-6" />,
   Code2: <Code2 className="w-6 h-6" />,
   Cpu: <Cpu className="w-6 h-6" />,
   Bot: <Bot className="w-6 h-6" />,
-  ScrollText: <ScrollText className="w-6 h-6" />
+  ScrollText: <ScrollText className="w-6 h-6" />,
+  GraduationCap: <GraduationCap className="w-6 h-6" />,
+  Cloud: <Cloud className="w-6 h-6" />
 };
 
 export default function CertificationsSkillsSection() {
@@ -30,13 +28,16 @@ export default function CertificationsSkillsSection() {
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
     >
-      <h2 className="text-3xl font-bold text-center mb-12">Certifications & Skills</h2>
+      <div className="text-center mb-12">
+        <h2 className="text-3xl font-bold text-white text-glow mb-3">Education, Certifications & Skills</h2>
+        <div className="h-1 w-20 bg-gradient-to-r from-neon-violet to-neon-cyan mx-auto rounded-full"></div>
+      </div>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
         {certifications.map((cert, index) => (
           <motion.div
             key={index}
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.03 }}
             transition={{ type: 'spring', stiffness: 300 }}
           >
             <CertCard
@@ -44,6 +45,27 @@ export default function CertificationsSkillsSection() {
               icon={iconMap[cert.icon] || <ScrollText className="w-6 h-6" />}
             />
           </motion.div>
+        ))}
+      </div>
+
+      {/* Categorized Tech Stack Grid */}
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
+        {skillCategories.map((cat, idx) => (
+          <div key={idx} className="glass-card p-5 rounded-xl border border-white/10 hover:border-neon-cyan/40 transition-colors">
+            <h3 className="text-xs font-bold font-mono text-neon-cyan mb-3 tracking-wider uppercase">
+              {cat.name}
+            </h3>
+            <div className="flex flex-wrap gap-1.5">
+              {cat.items.map((item, itemIdx) => (
+                <span
+                  key={itemIdx}
+                  className="text-xs px-2.5 py-1 rounded-md bg-white/5 text-gray-300 border border-white/10 font-mono hover:text-neon-cyan hover:border-neon-cyan/30 transition-colors"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
         ))}
       </div>
 

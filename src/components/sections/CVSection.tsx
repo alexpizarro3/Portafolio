@@ -4,11 +4,11 @@ import { FileDown } from 'lucide-react';
 
 export default function CVSection() {
   return (
-    <section className="w-full px-4 py-12 max-w-4xl mx-auto text-center relative z-20">
+    <section id="resume" className="w-full px-4 py-12 max-w-4xl mx-auto text-center relative z-20">
       <div className="glass-panel p-8 rounded-2xl">
         <h2 className="text-3xl font-bold mb-4 text-white text-glow">Download My Resume</h2>
         <p className="mb-6 text-gray-300 font-light">
-          Choose your preferred language to download a one-page resume.
+          Choose your preferred language to download my updated resume.
         </p>
         <div id="cvsection" className="flex flex-col sm:flex-row gap-4 justify-center">
           <a

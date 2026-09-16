@@ -84,16 +84,21 @@ export default function HomeClient({ projects }: HomeClientProps) {
             <Navbar />
 
             {/* Hero Section */}
-            <section className="relative h-[600px] flex items-center justify-center overflow-hidden">
+            <section id="about" className="relative h-[600px] flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <Hero3DMinimal />
                 </div>
             </section>
 
             {/* Experience Section */}
-            <section id="experience" className="py-20 relative z-10 w-full max-w-6xl mx-auto px-6">
+            <div className="relative z-10 w-full max-w-6xl mx-auto">
                 <ExperienceSection />
-            </section>
+            </div>
+
+            {/* Resume Section */}
+            <div className="relative z-10">
+                <CVSection />
+            </div>
 
             {/* Services Section */}
             <motion.section

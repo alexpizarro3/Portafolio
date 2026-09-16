@@ -1,56 +1,67 @@
-# Alexis Pizarro
+# Alexis Pizarro Abarca
 
-Ingeniero en Sistemas | Especialista en BI y Análisis de Datos  
+**Senior Supply Chain Data Analyst | Ingeniero en Sistemas de Información**  
 Heredia, Costa Rica  
-alexpizarro3@gmail.com | +506 8357 1265  
+alexpizarro3@gmail.com | [LinkedIn](https://www.linkedin.com/in/alexis-pizarro-abarca-9018826b/) | [GitHub](https://github.com/alexpizarro3)  
 alexispizarroportafolio.vercel.app
+
+---
 
 ## Resumen Profesional
 
-Ingeniero en Sistemas y Analista BI con más de 5 años de experiencia en las industrias de manufactura y fintech. Experto en automatización de procesos, diseño de dashboards y análisis en tiempo real para apoyar decisiones estratégicas.
+Ingeniero en Sistemas de Información y Especialista en Integración de Datos con sólida trayectoria en operaciones de supply chain, infraestructura técnica y gestión de proyectos dentro del ecosistema de Google. Experto en el Google Data Stack (PLX, BigQuery, GoogleSQL) y Microsoft Power BI. Historial comprobado de automatización de flujos de trabajo complejos mediante Python RPA y Power Automate, liderando iniciativas de transformación digital que generan ahorros sustanciales y máxima eficiencia operativa. Aprovechamiento de Inteligencia Artificial Generativa (Google Gemini, NotebookLM, Gems) para acelerar flujos de trabajo de datos y optimizar la entrega de proyectos complejos. Scrum Master activo facilitando ceremonias ágiles y optimizando la velocidad del equipo.
 
-Dominio de Power BI, SQL, RStudio, Python, Power Query y Jupyter Notebooks. Experiencia comprobada en liderar proyectos de transformación digital que generan ahorros, mayor visibilidad de datos y valor de negocio.
+---
 
-## Experiencia
+## Habilidades Técnicas
 
-**Business Intelligence Data Analyst – B2S Núcleos Fintech** (2024 – Actualidad)  
-- Desarrollo de dashboards estratégicos en Power BI para el sector fintech en LATAM y EE.UU.  
-- Implementación de insights en tiempo real usando Power BI, Power Query, RStudio y Jupyter.  
-- Aplicación de metodologías ágiles para asegurar el cumplimiento oportuno de objetivos.  
-- Uso de SQL como herramienta ETL para generar insights de negocio y apoyar decisiones.
+- **Data Stack:** PLX Scripts, BigQuery, GoogleSQL, PostgreSQL, SQL Server.
+- **BI & Visualización:** Looker, Power BI (Power Query / DAX), PLX Dashboards, Excel Avanzado.
+- **Automatización e IA:** Python (RPA), Google Apps Script, Power Automate, Google Gemini AI, NotebookLM, Veo, Gemini Gems.
+- **Herramientas de Gestión de Proyectos:** Buganizer (Issue Tracking y Gestión de Componentes), TaskFlow Portfolios, Aurora (Admin de herramienta estilo JIRA).
+- **Liderazgo Ágil y Administración:** Desempeño como Scrum Master, facilitación de ceremonias ágiles y optimización de velocidad.
 
-**Coordinador de Sistemas de Información BI – Pozuelo (Grupo Nutresa)** (2008 – 2024)  
-- Creación y migración de la sabana de KPIs a Power BI → ahorro de más de $100K.  
-- Automatización de procesos ETL en Python para logística, inventario y costos.  
-- Visualización de datos en planta con SAP, Excel y captura en tiempo real desde piso.  
-- Proyecto clave: Desarrollo de una solución de planta tipo MES sin papel → ahorro de $150,000/año.
+---
 
-## Educación
+## Experiencia Profesional
 
-Bachillerato en Ingeniería en Sistemas – Modalidad Tesis  
-Universidad Hispanoamericana, Heredia, Costa Rica
+### **Senior Supply Chain Reverse Data Analyst | Google (vía Accenture)**
+*Septiembre 2025 – Presente*
+- **Onboarding RevFleet WS2:** Liderazgo en signal sourcing de activos, integración de señales VRM (Vendor Relationship Management) y refinamiento de documentos de requerimientos de negocio (BRD).
+- **Implementación de TaskFlow:** Gestión de la planificación y ejecución a nivel de equipo mediante TaskFlow Portfolios.
+- Optimización de extracción de datos usando PLX Scripts avanzados y GoogleSQL para Reverse Logistics.
+- Creación de reportes estratégicos en Looker y PLX Dashboards para la toma de decisiones.
+- Participante activo en el programa de liderazgo y crecimiento profesional **Mentoring & Training Mavens**.
 
-## Certificaciones
+### **Business Intelligence Data Analyst | B2S Núcleos Fintech**
+*Diciembre 2024 – Septiembre 2025*
+- Desarrollo de soluciones estratégicas de BI en Power BI e integración de bases de datos PostgreSQL mediante Power Query.
+- Utilización de Python para transformación de datos y analítica avanzada, entregando insights financieros de alto impacto.
 
-- PL-300: Power BI Data Analyst – Junio 2025  
-- Data Analyst con Power BI – DataCamp (2025)  
-- Python para Análisis de Datos – DataCamp (2025)  
-- Excel Analytics – Great Learning (2023)  
-- Azure Fundamentals – Great Learning (2023)
+### **Lead Manufacturing Data Analyst | Pozuelo (Grupo Nutresa)**
+*2018 – 2024*
+- Liderazgo en planificación de producción y transformación digital, migrando sistemas legados a Power BI con ahorros superiores a $500K+.
+- Desarrollo de simulaciones MRP basadas en Python y más de 20 RPAs en Python para extracción de datos SAP e interacción con SQL.
 
-## Habilidades
+### **Coordinador de Sistemas de Información | Pozuelo (Grupo Nutresa)**
+*2012 – 2018*
+- Liderazgo de la transformación digital en planta, integrando datos de SAP y Shop Floor con SQL Server y Python.
+- Desarrollo de aplicaciones web en tiempo real con Google Apps Script para la digitalización de procesos críticos.
 
-Power BI, SQL, RStudio, Python, Jupyter Notebooks, Power Query, Excel  
-Automatización de ETLs, Modelado de KPIs, Optimización de costos, Analítica en manufactura  
-Metodologías ágiles, generación de insights, UI web con React y Next.js
+---
 
-## Proyectos
+## Educación y Certificaciones
 
-- Sistema de Planta sin Papel: Reporte tipo MES y KPIs → ahorro de $150K/año  
-- Migración a Power BI: Sistema de indicadores con alertas automáticas → ROI de más de $100K  
-- Portafolio Web: Sitio interactivo con IA, animaciones 3D y portafolio de proyectos
+- **Bachillerato en Ingeniería en Sistemas de Información** – Universidad Hispanoamericana *(Currículum completo - Tesis pendiente)*
+- **Certificación Google Cloud Platform Analytics** (2025)
+- **Certificado Profesional Google Data Analytics** (2024)
+- **Data Analyst with Power BI** – DataCamp (2025)
+- **Certificado de Inglés EF SET (B2-C1)** (2023 - 2025)
+- **PL-300: Microsoft Power BI Data Analyst** (2025)
+
+---
 
 ## Idiomas
 
-Español: Nativo  
-Inglés: Avanzado (B2–C1)
+- **Español:** Nativo
+- **Inglés:** Avanzado (B2–C1)

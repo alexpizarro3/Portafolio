@@ -2,7 +2,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Briefcase, Calendar } from 'lucide-react';
+import { Briefcase, Calendar, ChevronRight } from 'lucide-react';
 import { experience } from '@/data/experience';
 
 export default function ExperienceSection() {
@@ -56,6 +56,17 @@ export default function ExperienceSection() {
                             <p className="text-gray-300 mb-4 leading-relaxed font-light">
                                 {job.description}
                             </p>
+
+                            {job.achievements && job.achievements.length > 0 && (
+                                <ul className="mb-5 space-y-2 text-sm text-gray-300 font-light">
+                                    {job.achievements.map((item, aIdx) => (
+                                        <li key={aIdx} className="flex items-start gap-2">
+                                            <ChevronRight className="w-4 h-4 text-neon-cyan shrink-0 mt-0.5" />
+                                            <span>{item}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
 
                             <div className="flex flex-wrap gap-2">
                                 {job.skills.map((skill, i) => (

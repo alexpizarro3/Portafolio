@@ -19,8 +19,8 @@ const jetbrainsMono = JetBrains_Mono({
 import NoiseOverlay from "@/components/ui/NoiseOverlay";
 
 export const metadata = {
-  title: 'Alexis Pizarro – Data Analytics & BI Portfolio',
-  description: 'Explore the interactive portfolio of Alexis Pizarro, Business Intelligence Analyst and Power BI Developer. Showcasing automated Python workflows, advanced SQL dashboards, and real-world data solutions.'
+  title: 'Alexis Pizarro Abarca | Senior Supply Chain Data Analyst & Systems Engineer',
+  description: 'Portfolio of Alexis Pizarro Abarca: Senior Supply Chain Data Analyst and Information Systems Engineer. Expert in the Google Data Stack (PLX, BigQuery, GoogleSQL), Power BI, Python RPA, and Generative AI.'
 };
 
 export default function RootLayout({

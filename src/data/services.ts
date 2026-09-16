@@ -3,46 +3,43 @@ import { BarChart4, Bot, Factory, Cpu } from 'lucide-react';
 
 export const services = [
     {
-        title: "Data Analysis",
+        title: "Google Data & Supply Chain",
         icon: BarChart4,
-        color: "text-indigo-600",
+        color: "text-neon-cyan",
         description: [
-            "Saved $100K annually with Excel + SQL KPIs.",
-            "Reduced costs by $400K through Power BI migration.",
-            "Automated refresh via Power BI Service."
+            "Advanced data extraction using PLX Scripts & GoogleSQL.",
+            "Asset recovery & Reverse Logistics signal sourcing (VRM, RevFleet).",
+            "BigQuery pipelines, PLX Dashboards & Looker reporting."
         ]
     },
     {
-        title: "Automations",
+        title: "Automation & Generative AI",
         icon: Bot,
-        color: "text-green-500",
+        color: "text-green-400",
         description: [
-            "20+ Python RPAs for SAP data extraction, SQL interaction, and Google Drive sync.",
-            "24/7 integration via Windows Task Scheduler.",
-            "Automated alerts via email and WhatsApp.",
-            "Monitoring via Power Automate flows."
+            "Leveraging Google Gemini, NotebookLM & Gems for data acceleration.",
+            "20+ Python RPAs for SAP data extraction and SQL sync.",
+            "Automated workflows with Power Automate & Google Apps Script."
         ]
     },
     {
-        title: "Digital Transformation",
+        title: "Strategic BI & Analytics",
         icon: Cpu,
-        color: "text-purple-500",
+        color: "text-neon-violet",
         description: [
-            "Real-time web apps using Google Apps Script.",
-            "Digitization of critical plant processes.",
-            "Real-time KPIs via MES systems (↑ 2% OEE)."
+            "End-to-end Power BI solutions with advanced DAX and Power Query.",
+            "PostgreSQL & SQL Server database modeling for fintech & operations.",
+            "Financial insights and real-time operational performance monitoring."
         ]
     },
     {
-        title: "Planning & Execution",
+        title: "Digital Transformation & Agile",
         icon: Factory,
-        color: "text-yellow-500",
+        color: "text-yellow-400",
         description: [
-            "MRP simulations with Python + Excel.",
-            "Production plan compliance and KPI dashboards.",
-            "CAPEX project leadership for plant upgrades.",
-            "150K USD savings.",
-            "Cost analysis per process order."
+            "Delivered $500K+ in operational savings migrating legacy systems.",
+            "Serving as Scrum Master: facilitating agile ceremonies & velocity.",
+            "TaskFlow Portfolios, Buganizer component management & Aurora admin."
         ]
     }
 ];

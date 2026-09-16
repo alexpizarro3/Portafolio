@@ -6,60 +6,52 @@ export async function POST(req: Request) {
 
   const faqs: { keywords: string[]; answer: string }[] = [
     {
-      keywords: ['who created', 'who made', 'who built', 'created'],
-      answer: 'This portfolio was designed and developed by Alexis Pizarro using Next.js, Tailwind CSS, Three.js, and Framer Motion.',
+      keywords: ['who created', 'who made', 'who built', 'created', 'who are you', 'quien es', 'who is'],
+      answer: 'This portfolio belongs to Alexis Pizarro Abarca, Senior Supply Chain Data Analyst and Information Systems Engineer with extensive experience in the Google Ecosystem, BI, Python RPA, and Generative AI.',
     },
     {
-      keywords: ['study path', 'education', 'university', 'study', 'studies', 'path'],
-      answer: 'Alexis Pizarro studied Systems Engineering at Hispanoamerican University in Heredia. He later earned certifications through Grow Up and Microsoft.',
+      keywords: ['google', 'accenture', 'revfleet', 'reverse logistics'],
+      answer: 'At Google (via Accenture), Alexis works as Senior Supply Chain Reverse Data Analyst, leading efforts in asset signal sourcing, VRM signal integration, BRD refinement, PLX Scripts, GoogleSQL, Looker reports, and TaskFlow implementation.',
     },
     {
-      keywords: ['years of experience', 'experience'],
-      answer: 'Alexis has over 5 years of experience in System Engineering, Business Intelligence, and Data Analysis.',
+      keywords: ['ai', 'generative ai', 'gemini', 'notebooklm', 'ia', 'inteligencia artificial'],
+      answer: 'Alexis leverages Generative AI (Google Gemini, NotebookLM, Gems, Veo) to accelerate complex data workflows, optimize project delivery, and enhance analytical precision.',
     },
     {
-      keywords: ['technologies', 'stack', 'used', 'tech', 'stack'],
-      answer: 'The portfolio uses Next.js, Tailwind CSS, React Three Fiber, Framer Motion, and Supabase for the backend.',
+      keywords: ['scrum', 'agile', 'scrum master', 'leadership'],
+      answer: 'Alexis serves as Scrum Master, facilitating agile ceremonies, optimizing team velocity, and administering project tools like TaskFlow Portfolios, Buganizer, and Aurora.',
+    },
+    {
+      keywords: ['study path', 'education', 'university', 'study', 'studies', 'degree'],
+      answer: 'Alexis holds a B.S. in Information Systems Engineering from Universidad Hispanoamericana (curriculum complete, thesis pending), along with GCP Analytics, Google Data Analytics, and DataCamp certifications.',
+    },
+    {
+      keywords: ['years of experience', 'experience', 'career', 'trayectoria'],
+      answer: 'Alexis has over 12 years of progressive engineering and analytical experience spanning Google (via Accenture), B2S Núcleos Fintech, and Pozuelo (Nutresa Group).',
+    },
+    {
+      keywords: ['technologies', 'stack', 'used', 'tech', 'skills'],
+      answer: 'Technical stack: PLX Scripts, GoogleSQL, BigQuery, PostgreSQL, SQL Server, Looker, Power BI (DAX/Query), Python (RPA), Google Apps Script, Power Automate, and Google Gemini AI.',
+    },
+    {
+      keywords: ['certifications', 'certificates', 'certificaciones'],
+      answer: 'Key certifications include Google Cloud Platform Analytics (2025), Google Data Analytics Professional (2024), Data Analyst with Power BI (DataCamp 2025), EF SET English Certificate (B2-C1), and PL-300.',
     },
     {
       keywords: ['purpose', 'goal', 'mission'],
-      answer: "This portfolio showcases Alexis Pizarro's skills, projects, and achievements in data analysis and business intelligence.",
+      answer: "This portfolio showcases Alexis Pizarro's professional profile, real-world data engineering solutions, interactive dashboards, and career achievements.",
     },
     {
-      keywords: ['3d animation', 'three.js', 'shaders', '3d'],
-      answer: 'The 3D animation was built with React Three Fiber and custom shaders for a galactic effect.',
+      keywords: ['fintech', 'b2s'],
+      answer: 'At B2S Núcleos Fintech, Alexis developed strategic Power BI solutions, integrated PostgreSQL databases via Power Query, and used Python for financial analytics.',
     },
     {
-      keywords: ['how many projects', 'number of projects', 'project', 'projects'],
-      answer: 'The portfolio currently showcases 12 projects categorized under Power BI, Python, and Digital Transformation.',
+      keywords: ['pozuelo', 'nutresa', 'manufacturing'],
+      answer: 'At Pozuelo (Nutresa Group), Alexis led production planning, developed Python-based MRP simulations, 20+ Python RPAs for SAP/SQL, and generated over $500K in operational savings.',
     },
     {
-      keywords: ['digital tft', 'digital transformation', 'digital'],
-      answer: 'Digital Tft stands for Digital Transformation — projects that involved automating and digitizing real-world operations like manufacturing.',
-    },
-    {
-      keywords: ['impactful', 'important project', 'biggest savings', 'impact'],
-      answer: 'The Digital Manufacturing project using Shoplogix MES saved $150K/year by enabling real-time data and going fully paperless.',
-    },
-    {
-      keywords: ['python projects', 'python', 'scripts', 'automation'],
-      answer: 'The Python projects include automation scripts for data processing, web scraping, and ETL tasks, enhancing efficiency and accuracy.',
-    },
-    {
-      keywords: ['power bi projects', 'power bi'],
-      answer: 'The Power BI projects focus on creating interactive dashboards and reports for data visualization and business intelligence.',
-    },
-    {
-      keywords: ['dax', 'dax knowledge'],
-      answer: 'DAX (Data Analysis Expressions) is used in Power BI for data modeling and creating complex calculations in reports.',
-    },
-    {
-      keywords: ['sql', 'sql knowledge'],
-      answer: 'SQL (Structured Query Language) is used for querying and managing data in relational databases, essential for ETL processes.',
-    },
-    {
-      keywords: ['achievement', 'achievements', 'accomplishment'],
-      answer: 'Alexis has led initiatives saving over $500K through BI dashboards, process automation with Python, and paperless manufacturing.',
+      keywords: ['achievement', 'achievements', 'accomplishment', 'savings'],
+      answer: 'Alexis delivered over $500K in cost savings migrating legacy manufacturing systems to Power BI, built 20+ Python RPAs, and currently drives high-impact reverse logistics pipelines at Google.',
     },
   ];
 

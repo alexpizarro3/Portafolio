@@ -44,7 +44,7 @@ const productionProjects = [
 
 export default function ProductionPlanningSection() {
   return (
-    <section className="py-24 px-6 max-w-6xl mx-auto" id="production-planning">
+    <section className="py-24 px-6 max-w-6xl mx-auto" id="planning">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}

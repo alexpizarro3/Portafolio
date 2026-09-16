@@ -19,7 +19,7 @@ export default function Navbar() {
                     <Code2 className="text-neon-violet" /> AP_V9
                 </h1>
                 <ul className="hidden md:flex gap-8 text-sm font-mono text-gray-300">
-                    {['About', 'Experience', 'Planning', 'Certifications', 'Portfolio', 'Contact'].map((item) => (
+                    {['About', 'Experience', 'Resume', 'Planning', 'Certifications', 'Portfolio', 'Contact'].map((item) => (
                         <li key={item}>
                             <a
                                 href={`/#${item.toLowerCase().replace(' ', '-')}`}
